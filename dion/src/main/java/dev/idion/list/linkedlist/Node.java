@@ -12,8 +12,8 @@ public class Node {
     private Node nextNode;
 
     public Node(int data) {
-        this.data = data;
-        this.nextNode = null;
+        this.data = data; // Node에 데이터 저장
+        this.nextNode = null; // 다음 Node에 대한 포인터를 null로 초기화한다.
     }
 
     /**
@@ -22,9 +22,11 @@ public class Node {
      * @since 2020-05-16
      */
     public static void appendNode(Node newNode) {
+        // head Node가 null이라면 새로운 node가 head
         if (Node.head == null) {
             Node.head = newNode;
         } else {
+            // tail을 찾아 newNode를 연결한다.
             Node tail = head;
             while (tail.nextNode != null) {
                 tail = tail.nextNode;
@@ -79,6 +81,22 @@ public class Node {
     public static void insertAfter(Node current, Node newNode) {
         newNode.nextNode = current.nextNode;
         current.nextNode = newNode;
+    }
+
+    /**
+     * 리스트의 전체 Node 갯수를 구합니다.
+     * @return 전체 Node의 갯수
+     */
+    public static int getNodeCount() {
+        int count = 0;
+        Node current = Node.head;
+        
+        while (current != null) {
+            current = current.nextNode;
+            count++;
+        }
+        
+        return count;
     }
 
     @Override
