@@ -38,6 +38,7 @@ public class Node {
      * 지정한 index에 있는 Node를 찾습니다.
      * @param location 찾고자 하는 index
      * @return 해당 인덱스에 위치한 Node
+     * @since 2020-05-16
      */
     public static Node getNodeAt(int location) {
         Node current = Node.head;
@@ -47,6 +48,26 @@ public class Node {
         }
 
         return current;
+    }
+
+    /**
+     * 해당 Node를 제거합니다.
+     * @param remove 제거할 Node
+     * @since 2020-05-16
+     */
+    public static void removeNode(Node remove) {
+        if (Node.head == remove) {
+            Node.head = remove.nextNode;
+        } else {
+            Node current = Node.head;
+            while (current != null && current.nextNode != remove) {
+                current = current.nextNode;
+            }
+
+            if (current != null) {
+                current.nextNode = remove.nextNode;
+            }
+        }
     }
 
     @Override
