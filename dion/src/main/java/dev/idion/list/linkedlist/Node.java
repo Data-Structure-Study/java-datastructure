@@ -84,6 +84,29 @@ public class Node {
     }
 
     /**
+     * 선택한 Node 이전에 새로운 Node를 집어넣습니다.
+     * @param current 새로운 Node가 삽입될 이후 Node
+     * @param newNode 새로운 Node
+     * @since 2020-05-16
+     */
+    public static void insertBefore(Node current, Node newNode) {
+        if (Node.head == current) {
+            Node.head = newNode;
+        } else {
+            Node before = Node.head;
+            while (before != null && before.nextNode != current) {
+                before = before.nextNode;
+            }
+
+            if (before != null) {
+                before.nextNode = newNode;
+            }
+        }
+
+        newNode.nextNode = current;
+    }
+
+    /**
      * 리스트의 전체 Node 갯수를 구합니다.
      * @return 전체 Node의 갯수
      */
