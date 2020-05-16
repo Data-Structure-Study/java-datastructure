@@ -18,7 +18,7 @@ public class Node {
 
     /**
      * Node를 맨 마지막 위치에 추가합니다.
-     * @param newNode 마지막 위치에 추가할 노드
+     * @param newNode 마지막 위치에 추가할 Node
      * @since 2020-05-16
      */
     public static void appendNode(Node newNode) {
@@ -68,6 +68,17 @@ public class Node {
                 current.nextNode = remove.nextNode;
             }
         }
+    }
+
+    /**
+     * 선택한 Node 다음에 새로운 Node를 집어넣습니다.
+     * @param current 새로운 Node가 삽입될 이전 Node
+     * @param newNode 새로운 Node
+     * @since 2020-05-16
+     */
+    public static void insertAfter(Node current, Node newNode) {
+        newNode.nextNode = current.nextNode;
+        current.nextNode = newNode;
     }
 
     @Override
