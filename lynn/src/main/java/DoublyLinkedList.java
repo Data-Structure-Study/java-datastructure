@@ -117,4 +117,73 @@ public class DoublyLinkedList {
         }
     }
 
+    public Object removeFirst() {
+        /*
+        1. 삭제할 첫번째 노드를 임시 노드에 담는다 (노드.data 반환해주려고)
+        2. 헤드가 임시 노드(기존의 헤드)의 다음 노드를 가리킨다
+        3. 데이터를 삭제하기 전에 리턴할 값을 임시 변수에 담는다
+        4. 임시 노드를 null로 바꿔준다.
+            GC가 삭제할 노드를 처리하도록?
+        5. 리스트 내에 노드가 있다면 head의 이전 노드를 null로 지정
+            조건문을 쓰는 이유는 널포인트 예외처리?
+        6. 데이터가 담긴 임시변수 반환
+         */
+        Node temp = head;
+        head = temp.next;
+
+        Object returnData = temp.data;
+
+        temp = null;
+
+        if(head != null) {
+            head.prev = null;
+        }
+
+        size--;
+        return returnData;
+    }
+
+    public Object remove(int k) {
+        /*
+        1. k=0이면 removeFirst()사용한다
+        2. k-1과 k번째 노드는 임시 노드에 담는다
+            k-1 -> 다른 노드와 연결해주기위해
+            k -> 삭제한 데이터를 반환해 주려고
+        3. k-1 next -> 삭제할 노드의 다음 노드 연결
+        4. k-1.next가 null이 아니면 3번의 다음 노드 prev -> k-1 연결
+            null이면 테일이라는 뜻이니까 연결하지 않음
+        5. 삭제된 노드의 데이터를 리턴하기 위해서 returnData에 데이터를 저장
+        6. 삭제된 노드가 tail이었다면 k-1을 tail로 지정
+        7. 임시 노드에 담은 삭제할 노드는 null로 지정
+         */
+        if(k==0) {
+            removeFirst();
+        }
+
+        Node temp = node(k-1);
+        Node todoDeleted = temp.next;
+
+        temp.next = temp.next.next;
+        if(temp.next != null) {
+            temp.next.prev = temp;
+        }
+
+        Object returnData = todoDeleted.data;
+
+        if(todoDeleted == tail) {
+            tail = temp;
+        }
+
+        todoDeleted = null;
+
+        size--;
+        return returnData;
+    }
+
+    public  Object removeLast() {
+        return remove(size - 1);
+    }
+
+
+
 }
