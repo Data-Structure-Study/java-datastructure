@@ -189,5 +189,25 @@ public class DoublyLinkedList {
         return temp.data;
     }
 
+    //특정 데이터가 저장된 인덱스를 알아내는 방법
+    public int indexOf(Object data) {
+        /*
+        1. 반복문을 이용해서 헤드부터 node.data를 비교한다
+         */
+        Node temp = head;
+        int index = 0;
+
+        while (temp.data != data) {
+            temp = temp.next;
+            index++;
+
+            // temp의 값이 null이라는 것은 더 이상 탐색 대상이 없다는 것을 의미합니다.이 때 -1을 리턴합니다.
+            if(temp == null) {
+                return -1;
+            }
+        }
+
+        return index;
+    }
 
 }
