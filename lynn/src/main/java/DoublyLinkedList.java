@@ -184,6 +184,10 @@ public class DoublyLinkedList {
         return remove(size - 1);
     }
 
+    public Object get(int k) {
+        Node temp = node(k);
+        return temp.data;
+    }
 
 
 }
