@@ -6,7 +6,7 @@ public class LinkedList {
     private Node tail;
     private int size = 0;
 
-    private static class Node {
+    public static class Node {
         // 데이터가 저장될 필드
         private Object data;
         // 다음 노드를 가리키는 필드
