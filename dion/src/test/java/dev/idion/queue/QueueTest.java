@@ -29,7 +29,15 @@ class QueueTest {
     @Test
     @DisplayName("Queue dequeue test")
     void queueDequeueTest() {
-        fail("Not Implemented");
+        Queue<Integer> queue = new Queue<>();
+
+        int expected = 1;
+        queue.enqueue(expected);
+
+        int actual = queue.dequeue();
+        assertThat(queue.size()).isEqualTo(0);
+        assertThat(queue.isEmpty()).isTrue();
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
