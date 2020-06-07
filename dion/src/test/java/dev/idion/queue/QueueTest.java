@@ -20,7 +20,10 @@ class QueueTest {
     @Test
     @DisplayName("Queue enqueue test")
     void queueEnqueueTest() {
-        fail("Not Implemented");
+        Queue<Integer> queue = new Queue<>();
+        queue.enqueue(1);
+        assertThat(queue.size()).isEqualTo(1);
+        assertThat(queue.isEmpty()).isFalse();
     }
 
     @Test
