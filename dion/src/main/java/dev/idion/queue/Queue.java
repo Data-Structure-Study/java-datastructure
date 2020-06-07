@@ -82,6 +82,13 @@ public class Queue<T> {
     }
 
     /**
+     * Queue 초기화
+     */
+    public void clear() {
+        this.front = this.rear = new Node<>();
+    }
+
+    /**
      * peekFront를 쉽게 호출하기 위한 메소드
      *
      * @return 맨 앞 Node의 데이터
