@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 class QueueTest {
 
@@ -53,5 +54,23 @@ class QueueTest {
         queue.clear();
         assertThat(queue.size()).isEqualTo(0);
         assertThat(queue.isEmpty()).isTrue();
+    }
+
+    @Test
+    @DisplayName("Queue peek test")
+    void queuePeekTest() {
+        fail("Not Implemented");
+    }
+
+    @Test
+    @DisplayName("queue peek exception test")
+    void queuePeekExceptionTest() {
+        fail("Not Implemented");
+    }
+
+    @Test
+    @DisplayName("queue dequeue exception test")
+    void queueDequeueExceptionTest() {
+        fail("Not Implemented");
     }
 }
