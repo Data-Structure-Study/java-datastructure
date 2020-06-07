@@ -59,7 +59,13 @@ class QueueTest {
     @Test
     @DisplayName("Queue peek test")
     void queuePeekTest() {
-        fail("Not Implemented");
+        Queue<Integer> queue = new Queue<>();
+        queue.enqueue(1);
+        queue.enqueue(2);
+
+        assertThat(queue.peek()).isEqualTo(1);
+        assertThat(queue.peekFront()).isEqualTo(1);
+        assertThat(queue.peekRear()).isEqualTo(2);
     }
 
     @Test
