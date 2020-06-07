@@ -65,6 +65,23 @@ public class Queue<T> {
     }
 
     /**
+     * front의 data 꺼내기
+     *
+     * @return 꺼내진 데이터
+     */
+    public T dequeue() {
+        T data = peek();
+        front.next = front.next.next;
+        size--;
+
+        if (isEmpty()) {
+            front = rear;
+        }
+
+        return data;
+    }
+
+    /**
      * peekFront를 쉽게 호출하기 위한 메소드
      *
      * @return 맨 앞 Node의 데이터
