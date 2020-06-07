@@ -22,4 +22,16 @@ class QueueTest {
     void queueEnqueueTest() {
         fail("Not Implemented");
     }
+
+    @Test
+    @DisplayName("Queue dequeue test")
+    void queueDequeueTest() {
+        fail("Not Implemented");
+    }
+
+    @Test
+    @DisplayName("Queue clear test")
+    void queueClearTest() {
+        fail("Not Implemented");
+    }
 }
