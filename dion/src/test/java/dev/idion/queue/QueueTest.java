@@ -3,7 +3,10 @@ package dev.idion.queue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.NoSuchElementException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.fail;
 
 class QueueTest {
@@ -71,7 +74,10 @@ class QueueTest {
     @Test
     @DisplayName("queue peek exception test")
     void queuePeekExceptionTest() {
-        fail("Not Implemented");
+        Queue<Integer> queue = new Queue<>();
+        assertThatThrownBy(queue::peekFront).hasMessage("Queue가 비어있습니다.").isInstanceOf(NoSuchElementException.class);
+
+        assertThatThrownBy(queue::peekRear).hasMessage("Queue가 비어있습니다.").isInstanceOf(NoSuchElementException.class);
     }
 
     @Test
