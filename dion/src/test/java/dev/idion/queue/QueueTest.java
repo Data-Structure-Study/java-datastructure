@@ -7,7 +7,6 @@ import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.fail;
 
 class QueueTest {
 
@@ -83,6 +82,7 @@ class QueueTest {
     @Test
     @DisplayName("queue dequeue exception test")
     void queueDequeueExceptionTest() {
-        fail("Not Implemented");
+        Queue<Integer> queue = new Queue<>();
+        assertThatThrownBy(queue::dequeue).hasMessage("Queue가 비어있습니다.").isInstanceOf(NoSuchElementException.class);
     }
 }
