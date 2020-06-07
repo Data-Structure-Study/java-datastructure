@@ -18,9 +18,32 @@ public class Queue<T> {
      * Queue의 맨 마지막 Node
      */
     private Node<T> rear;
+    /**
+     * Queue의 원소 수
+     */
+    private int size;
+
+    /**
+     * Queue가 비었는지 여부
+     *
+     * @return 비었다면 true, 아니라면 false
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
+     * Queue에 저장되어 있는 원소의 수
+     *
+     * @return 저장된 원소의 개수
+     */
+    public int size() {
+        return size;
+    }
 
     /**
      * Queue의 Node 구현체
+     *
      * @param <E>
      * @author dion
      * @version 1.0.0
@@ -38,7 +61,6 @@ public class Queue<T> {
 
         /**
          * Node의 생성자
-         *
          * @param data Node에 저장될 data
          */
         public Node(E data) {
