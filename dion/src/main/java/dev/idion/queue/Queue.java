@@ -1,5 +1,7 @@
 package dev.idion.queue;
 
+import java.util.NoSuchElementException;
+
 /**
  * FIFO 자료구조인 Queue 자료구조 구현체
  * 먼저 들어온 데이터가 먼저 출력된다.
@@ -26,6 +28,7 @@ public class Queue<T> {
     /**
      * Queue의 생성자
      * 초기화시에 front와 rear를 같은 Node를 참조하도록 설정
+     * Sentinel Node
      */
     public Queue() {
         front = rear = new Node<>();
@@ -59,6 +62,39 @@ public class Queue<T> {
         rear.next = newNode;
         rear = newNode;
         size++;
+    }
+
+    /**
+     * peekFront를 쉽게 호출하기 위한 메소드
+     *
+     * @return 맨 앞 Node의 데이터
+     */
+    public T peek() {
+        return this.peekFront();
+    }
+
+    /**
+     * 맨 앞 Node의 data를 확인
+     *
+     * @return 맨 앞 Node의 데이터
+     */
+    public T peekFront() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue가 비어있습니다.");
+        }
+        return front.next.data;
+    }
+
+    /**
+     * 맨 뒤 Node의 data를 확인
+     *
+     * @return 맨 뒤 Node의 데이터
+     */
+    public T peekRear() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue가 비어있습니다.");
+        }
+        return rear.data;
     }
 
     /**
