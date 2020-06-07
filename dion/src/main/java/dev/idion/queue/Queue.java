@@ -86,6 +86,7 @@ public class Queue<T> {
      */
     public void clear() {
         this.front = this.rear = new Node<>();
+        this.size = 0;
     }
 
     /**

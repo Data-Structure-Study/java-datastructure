@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
 
 class QueueTest {
 
@@ -43,6 +42,16 @@ class QueueTest {
     @Test
     @DisplayName("Queue clear test")
     void queueClearTest() {
-        fail("Not Implemented");
+        Queue<Integer> queue = new Queue<>();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+        queue.enqueue(1);
+        assertThat(queue.size()).isEqualTo(4);
+        assertThat(queue.isEmpty()).isFalse();
+
+        queue.clear();
+        assertThat(queue.size()).isEqualTo(0);
+        assertThat(queue.isEmpty()).isTrue();
     }
 }
