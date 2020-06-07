@@ -24,6 +24,14 @@ public class Queue<T> {
     private int size;
 
     /**
+     * Queue의 생성자
+     * 초기화시에 front와 rear를 같은 Node를 참조하도록 설정
+     */
+    public Queue() {
+        front = rear = new Node<>();
+    }
+
+    /**
      * Queue가 비었는지 여부
      *
      * @return 비었다면 true, 아니라면 false
@@ -39,6 +47,18 @@ public class Queue<T> {
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * rear에 data 추가
+     *
+     * @param data 추가할 데이터
+     */
+    public void enqueue(T data) {
+        Node<T> newNode = new Node<>(data);
+        rear.next = newNode;
+        rear = newNode;
+        size++;
     }
 
     /**
@@ -59,8 +79,11 @@ public class Queue<T> {
          */
         private Node<E> next;
 
+        public Node() {}
+
         /**
          * Node의 생성자
+         *
          * @param data Node에 저장될 data
          */
         public Node(E data) {
