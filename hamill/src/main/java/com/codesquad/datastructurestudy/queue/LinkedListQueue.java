@@ -1,24 +1,16 @@
 package com.codesquad.datastructurestudy.queue;
 
-
-import com.codesquad.datastructurestudy.linkedlist.LinkedList;
-
 public class LinkedListQueue {
-    Node front;
-    Node rear;
-
-    public LinkedListQueue() {
-        this.front = null;
-        this.rear = null;
-    }
+    private Node front;
+    private Node rear;
 
     // Class for node
     private static class Node {
         // data
-        int value;
-        Node next;
+        private int value;
+        private Node next;
 
-        Node (int value) {
+        private Node (int value) {
             this.value = value;
         }
 
@@ -31,7 +23,7 @@ public class LinkedListQueue {
      * Linked list operations, keeping them separate from
      * Queue operations
      */
-    public void insertLast(int item) {
+    private void pushLast(int item) {
         Node newNode = new Node(item);
         if (isEmpty()) {
             front = newNode;
@@ -43,7 +35,7 @@ public class LinkedListQueue {
         rear = newNode;
     }
 
-    public int removeFirst() {
+    private int popFirst() {
         int temp = front.value;
 
         // if no node left after deleting node
@@ -67,7 +59,7 @@ public class LinkedListQueue {
         }
     }
 
-    public int nodeValue() {
+    private int nodeValue() {
         return front.value;
     }
 
@@ -76,16 +68,16 @@ public class LinkedListQueue {
     }
 
     /** Queue operations */
-    public void insert(int item) {
-        insertLast(item);
+    public void push(int item) {
+        pushLast(item);
     }
 
-    public int remove() {
+    public int pop() {
         if (isEmpty()) {
             throw new RuntimeException("Queue is empty.");
         }
 
-        return removeFirst();
+        return popFirst();
     }
 
     public int peek() {
@@ -94,17 +86,5 @@ public class LinkedListQueue {
         }
 
         return nodeValue();
-    }
-
-    public static void main(String[] args) {
-        LinkedListQueue linkedListQueue = new LinkedListQueue();
-        linkedListQueue.insert(3);
-        linkedListQueue.insert(6);
-        System.out.println("-- Displaying Queue Data --");
-        linkedListQueue.displayList();
-        System.out.println("Item peeked " + linkedListQueue.peek());
-        System.out.println("-- Removing Queue elements --");
-        System.out.println("Item removed " + linkedListQueue.remove());
-        System.out.println("Item removed " + linkedListQueue.remove());
     }
 }

@@ -15,7 +15,7 @@ class Queue {
         currentSize = 0;
     }
 
-    public void insert(int item) {
+    public void push(int item) {
         // check if queue is already full
         if (isQueueFull()) {
             System.out.println("Queue is full!!");
@@ -32,12 +32,11 @@ class Queue {
         System.out.println("Added to queue " + item);
     }
 
-    public int remove() {
+    public int pop() {
         // check if queue is empty
         if (isQueueEmpty()) {
             throw new RuntimeException("Queue is empty");
         }
-        // System.out.println("front= " + front + " maxSize= " + maxSize);
         // retrieve item then increment
         int temp = queueArray[front++];
         if (front == maxSize) {
@@ -59,13 +58,4 @@ class Queue {
         return (maxSize == currentSize);
     }
 
-    public static void main(String[] args) {
-        Queue queue = new Queue(10);
-        queue.insert(2);
-        queue.insert(3);
-        System.out.println("Item removed- " + queue.remove());
-        System.out.println("Item removed- " + queue.remove());
-        queue.insert(5);
-        System.out.println("Item removed- " + queue.remove());
-    }
 }
