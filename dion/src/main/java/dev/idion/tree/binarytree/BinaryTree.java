@@ -24,4 +24,40 @@ public class BinaryTree<E extends Comparable<E>> {
     public Node<E> getRoot() {
         return root;
     }
+
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    public void postOrder() {
+        postOrder(root);
+    }
+
+    private void preOrder(Node<E> node) {
+        if (node != null) {
+            System.out.print(node.getData());
+            preOrder(node.getLeft());
+            preOrder(node.getRight());
+        }
+    }
+
+    private void inOrder(Node<E> node) {
+        if (node != null) {
+            inOrder(node.getLeft());
+            System.out.print(node.getData());
+            inOrder(node.getRight());
+        }
+    }
+
+    private void postOrder(Node<E> node) {
+        if (node != null) {
+            postOrder(node.getLeft());
+            postOrder(node.getRight());
+            System.out.print(node.getData());
+        }
+    }
 }

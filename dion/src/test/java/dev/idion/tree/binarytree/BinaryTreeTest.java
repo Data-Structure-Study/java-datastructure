@@ -41,5 +41,11 @@ class BinaryTreeTest {
         Assertions.assertThat(binaryTree.getRoot().getRight().getRight().getRight().getData()).isEqualTo(9);
         Assertions.assertThat(binaryTree.getRoot().getRight().getRight().getRight().getLeft()).isNull();
         Assertions.assertThat(binaryTree.getRoot().getRight().getRight().getRight().getRight()).isNull();
+
+        binaryTree.preOrder();
+        System.out.println();
+        binaryTree.inOrder();
+        System.out.println();
+        binaryTree.postOrder();
     }
 }
