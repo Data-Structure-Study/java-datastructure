@@ -64,55 +64,6 @@ public class BinaryTree {
                 : containsNodeRecursive(current.right, value);
     }
 
-    // 잘못된 delete 사용법 같아서 주석 처리 합니다.
-    // 추후 delete 관련 코드를 수정하겠습니다.
-
-//    // 값(value)을 통해 트리가 가지고 있는 node를 삭제합니다
-//    public void delete(int value) {
-//        root = deleteRecursive(root, value);
-//    }
-//
-//    private Node deleteRecursive(Node current, int value) {
-//
-//        if (current == null) {
-//            return null;
-//        }
-//
-//        if (value == current.value) {
-//            // Case 1: no children
-//            if (current.left == null && current.right == null) {
-//                return null;
-//            }
-//
-//            // Case 2: only 1 child
-//            if (current.left == null) {
-//                return current.right;
-//            }
-//
-//            if (current.right == null) {
-//                return current.left;
-//            }
-//
-//            // Case 3: 2 children
-//            int smallestValue = findSmallestValue(current.right);
-//            current.value = smallestValue;
-//            current.right = deleteRecursive(current.right, smallestValue);
-//            return current;
-//        }
-//
-//        if (value < current.value) {
-//            current.left = deleteRecursive(current.left, value);
-//            return current;
-//        }
-//
-//        current.right = deleteRecursive(current.right, value);
-//        return current;
-//    }
-//
-//    private int findSmallestValue(Node root) {
-//        return root.left == null ? root.value : findSmallestValue(root.left);
-//    }
-
     // 트리의 중위 순회 알고리즘
     public void traverseInOrder(Node node) {
         if (node != null) {
