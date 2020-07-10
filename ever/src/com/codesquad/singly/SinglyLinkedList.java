@@ -1,4 +1,4 @@
-package singly;
+package com.codesquad.singly;
 
 import java.util.NoSuchElementException;
 

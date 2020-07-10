@@ -1,4 +1,4 @@
-package singly;
+package com.codesquad.singly;
 
 public class MainSingly {
 

@@ -1,4 +1,4 @@
-package doubly;
+package com.codesquad.doubly;
 
 public class MainDoubly {
     public static void main(String[] args) {

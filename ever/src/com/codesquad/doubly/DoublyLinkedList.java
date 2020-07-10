@@ -1,4 +1,4 @@
-package doubly;
+package com.codesquad.doubly;
 
 import java.util.NoSuchElementException;
 
