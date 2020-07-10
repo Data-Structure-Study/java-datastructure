@@ -40,7 +40,7 @@ public class MainStack {
         ============= List Stack =============
         top > apple
         top > orange apple
-        top > cherry orange apple 
+        top > cherry orange apple
         top > pear cherry orange apple
         top > cherry orange apple
         top > orange apple
