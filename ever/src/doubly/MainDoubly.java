@@ -28,7 +28,7 @@ public class MainDoubly {
         apple pear cherry
         apple pear orange cherry
         apple pear orange
-        apple pear orange grape 
+        apple pear orange grape
         pear orange grape
         orange grape
         grape
