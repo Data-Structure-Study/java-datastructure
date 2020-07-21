@@ -31,13 +31,14 @@ class Question03_1Test {
       int data = list.get(i);
       if (data % 2 == 0 || data % 3 == 0) {
         list.remove(i);
+        i--;
       }
     }
 
     // 1, 5, 7
     assertThat(list.size()).isEqualTo(3);
     assertThat(list.get(0)).isEqualTo(1);
-    assertThat(list.get(0)).isEqualTo(5);
-    assertThat(list.get(0)).isEqualTo(7);
+    assertThat(list.get(1)).isEqualTo(5);
+    assertThat(list.get(2)).isEqualTo(7);
   }
 }

@@ -43,10 +43,11 @@ class ListTest {
     for (int i = 0; i < list.size(); i++) {
       if (list.get(i) == 22) {
         list.remove(i);
+        i--; // 삭제되면 index가 조정되므로 해당 index부터 다시 확인해야 합니다.
       }
     }
 
-    assertThat(list.size()).isEqualTo(5);
+    assertThat(list.size()).isEqualTo(3);
     assertThat(list.get(0)).isEqualTo(11);
     assertThat(list.get(1)).isEqualTo(11);
     assertThat(list.get(2)).isEqualTo(33);
