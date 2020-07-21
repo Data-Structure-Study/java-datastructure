@@ -8,7 +8,7 @@ public interface List<E> {
 
   boolean isEmpty();
 
-  boolean contians(Object o);
+  boolean contains(Object o);
 
   E get(int index);
 
