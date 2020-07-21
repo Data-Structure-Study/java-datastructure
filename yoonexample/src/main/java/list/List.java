@@ -1,4 +1,4 @@
-package chapterone.list;
+package list;
 
 public interface List<E> {
 
