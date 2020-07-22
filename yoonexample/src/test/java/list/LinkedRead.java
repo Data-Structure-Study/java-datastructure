@@ -45,6 +45,25 @@ public class LinkedRead {
         System.out.print(cur.data + " ");
       }
     }
+
+    // 저장된 데이터를 삭제하는 과정
+    if (head != null) {
+      Node<Integer> delNode = head;
+      Node<Integer> delNextNode = head.next;
+
+      System.out.println(head.data + "을(를) 삭제합니다.");
+      head = null; // 참조하는 것이 없어져서 gc의 대상이 됩니다.
+
+      while (delNextNode != null) {
+        delNode = delNextNode;
+        delNextNode = delNode.next;
+
+        System.out.println(delNode.data + "을(를) 삭제합니다.");
+        delNode = null;
+      }
+      tail = null;
+      cur = null;
+    }
   }
 
   private static class Node<E> {
