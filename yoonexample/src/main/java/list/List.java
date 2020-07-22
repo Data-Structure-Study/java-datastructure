@@ -1,5 +1,7 @@
 package list;
 
+import java.util.Comparator;
+
 public interface List<E> {
 
   void insert(E data);
@@ -13,4 +15,6 @@ public interface List<E> {
   E get(int index);
 
   E remove(int index);
+
+  void setSortRule(Comparator<E> comp);
 }

@@ -1,11 +1,14 @@
 package list;
 
+import java.util.Comparator;
+
 public class ArrayList<E> implements List<E> {
 
   private static final int INITIAL_CAPACITY = 100;
 
   private int size;
   private Object[] arr;
+  private Comparator<E> comp;
 
   public ArrayList() {
     this.arr = new Object[INITIAL_CAPACITY];
@@ -65,5 +68,10 @@ public class ArrayList<E> implements List<E> {
 
     this.size--;
     return data;
+  }
+
+  @Override
+  public void setSortRule(Comparator<E> comp) {
+    this.comp = comp;
   }
 }
