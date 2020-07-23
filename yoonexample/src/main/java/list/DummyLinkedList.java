@@ -49,12 +49,32 @@ public class DummyLinkedList<E> implements SortedList<E> {
 
   @Override
   public boolean contains(Object o) {
+    Node<E> cur = this.head;
+    if (o == null) {
+      while (cur.next != null) {
+        if (cur.data == null) {
+          return true;
+        }
+      }
+    } else {
+      while (cur.next != null) {
+        if (o.equals(cur.data)) {
+          return true;
+        }
+      }
+    }
     return false;
   }
 
   @Override
   public E get(int index) {
-    return null;
+    Node<E> cur = this.head;
+
+    for (int i = 0; i < index; i++) {
+      cur = cur.next;
+    }
+
+    return cur.data;
   }
 
   @Override
