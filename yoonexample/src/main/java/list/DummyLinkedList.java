@@ -15,6 +15,25 @@ public class DummyLinkedList<E> implements SortedList<E> {
 
   @Override
   public void insert(E data) {
+    if (this.comp == null) {
+      insertToHead(data);
+    } else {
+      insertWithSortRule(data);
+    }
+  }
+
+  // 인터페이스를 통해 제공되는 메소드가 아님!
+  private void insertToHead(E data) {
+    Node<E> newNode = new Node<>(data);
+
+    newNode.next = this.head.next;
+    this.head.next = newNode;
+
+    this.size++;
+  }
+
+  // 인터페이스를 통해 제공되는 메소드가 아님!
+  private void insertWithSortRule(E data) {
 
   }
 
