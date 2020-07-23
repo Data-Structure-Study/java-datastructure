@@ -20,12 +20,12 @@ public class DummyLinkedList<E> implements SortedList<E> {
 
   @Override
   public int size() {
-    return 0;
+    return this.size;
   }
 
   @Override
   public boolean isEmpty() {
-    return false;
+    return this.size == 0;
   }
 
   @Override
