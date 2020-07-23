@@ -81,7 +81,17 @@ public class DummyLinkedList<E> implements SortedList<E> {
 
   @Override
   public E remove(int index) {
-    return null;
+    Node<E> before = this.head;
+    Node<E> cur = before.next;
+
+    for (int i = 0; i < index; i++) {
+      before = cur;
+      cur = cur.next;
+    }
+    before.next = cur.next;
+    this.size--;
+
+    return cur.data;
   }
 
   private static class Node<T> {
