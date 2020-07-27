@@ -60,6 +60,9 @@ public class DoublyLinkedList<E> implements List<E> {
 
   @Override
   public E get(int index) {
+    if (this.head == null) {
+      return null;
+    }
     Node<E> cur = this.head;
 
     for (int i = 0; i < index; i++) {
