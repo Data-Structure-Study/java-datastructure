@@ -74,6 +74,9 @@ public class CircularLinkedList<E> implements List<E> {
     Node<E> prev = this.tail;
 
     for (int i = 0; i < index; i++) { // 삭제 대상까지 이동합니다.
+      if (cur.next == null) {
+        return null;
+      }
       prev = cur;
       cur = cur.next;
     }
