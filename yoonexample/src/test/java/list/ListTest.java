@@ -111,7 +111,32 @@ class ListTest {
     assertThat(list.get(3)).isNull();
     assertThat(list.remove(4)).isNull();
     assertThat(list.contains(null)).isFalse();
-    assertThat(list.size()).isEqualTo(0);
+    assertThat(list.size()).isZero();
     assertThat(list.isEmpty()).isTrue();
   }
+
+  @Test
+  @DisplayName("DoublyLinkedList의 생성 및 초기화 테스트")
+  void DoublyLinkedList의_생성_및_초기화_테스트() {
+    List<Integer> list = new DoublyLinkedList<>();
+
+    assertThat(list).isNotNull();
+  }
+
+  @Test
+  @DisplayName("DoublyLinkedList 데이터 3개 저장 테스트")
+  void DoublyLinkedList_데이터_3개_저장_테스트() {
+    List<Integer> list = new DoublyLinkedList<>();
+
+    list.insert(11);
+    list.insert(22);
+    list.insert(33);
+
+    assertThat(list.isEmpty()).isFalse();
+    assertThat(list.size()).isEqualTo(3);
+    assertThat(list.get(0)).isEqualTo(11);
+    assertThat(list.get(1)).isEqualTo(22);
+    assertThat(list.get(2)).isEqualTo(33);
+  }
+}
 }
