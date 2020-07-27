@@ -31,12 +31,35 @@ public class CircularLinkedList<E> implements List<E> {
 
   @Override
   public boolean contains(Object o) {
+    if (tail == null) { // 초기화만 된 상태라면 데이터가 없으므로 false를 반환합니다.
+      return false;
+    }
+    Node<E> cur = tail.next; // head를 선택합니다.
+    if (o == null) {
+      for (int i = 0; i < this.size; i++) { // 사이즈만큼만 순회하도록 합니다.
+        if (cur.data == null) {
+          return true;
+        }
+        cur = cur.next;
+      }
+    } else {
+      for (int i = 0; i < this.size; i++) {
+        if (o.equals(cur.data)) {
+          return true;
+        }
+        cur = cur.next;
+      }
+    }
     return false;
   }
 
   @Override
   public E get(int index) {
-    return null;
+    Node<E> cur = tail.next;
+    for (int i = 0; i < index; i++) {
+      cur = cur.next;
+    }
+    return cur.data;
   }
 
   @Override
