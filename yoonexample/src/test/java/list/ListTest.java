@@ -156,4 +156,51 @@ class ListTest {
     assertThat(list.get(1)).isEqualTo(22);
     assertThat(list.get(2)).isEqualTo(11);
   }
+
+  @Test
+  @DisplayName("DoublyLinkedList 데이터 3개 저장 후 삭제 테스트")
+  void DoublyLinkedList_데이터_3개_저장_후_삭제_테스트() {
+    List<Integer> list = new DoublyLinkedList<>();
+
+    list.insert(11);
+    list.insert(22);
+    list.insert(33);
+
+    list.remove(2);
+    list.remove(1);
+
+    assertThat(list.isEmpty()).isFalse();
+    assertThat(list.size()).isEqualTo(1);
+    assertThat(list.contains(11)).isFalse();
+    assertThat(list.contains(22)).isFalse();
+    assertThat(list.contains(33)).isTrue();
+    assertThat(list.contains(44)).isFalse();
+    assertThat(list.get(0)).isEqualTo(33);
+  }
+
+  @Test
+  @DisplayName("DoublyLinkedList 예외 처리 테스트")
+  void DoublyLinkedList_예외_처리_테스트() {
+    List<Integer> list = new DoublyLinkedList<>();
+
+    assertThat(list.get(3)).isNull();
+    assertThat(list.remove(4)).isNull();
+    assertThat(list.contains(null)).isFalse();
+    assertThat(list.size()).isZero();
+    assertThat(list.isEmpty()).isTrue();
+  }
+
+  @Test
+  @DisplayName("DoublyLinkedList 예외 처리 테스트2")
+  void DoublyLinkedList_예외_처리_테스트2() {
+    List<Integer> list = new DoublyLinkedList<>();
+
+    list.insert(1);
+
+    assertThat(list.get(3)).isNull();
+    assertThat(list.remove(4)).isNull();
+    assertThat(list.contains(null)).isFalse();
+    assertThat(list.size()).isEqualTo(1);
+    assertThat(list.isEmpty()).isFalse();
+  }
 }
