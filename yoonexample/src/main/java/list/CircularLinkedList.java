@@ -55,6 +55,9 @@ public class CircularLinkedList<E> implements List<E> {
 
   @Override
   public E get(int index) {
+    if (tail == null) {
+      return null;
+    }
     Node<E> cur = tail.next;
     for (int i = 0; i < index; i++) {
       cur = cur.next;
