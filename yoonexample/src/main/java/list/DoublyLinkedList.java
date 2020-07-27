@@ -15,7 +15,7 @@ public class DoublyLinkedList<E> implements List<E> {
     }
 
     this.head = newNode;
-    size++;
+    this.size++;
   }
 
   @Override
@@ -66,6 +66,9 @@ public class DoublyLinkedList<E> implements List<E> {
     Node<E> cur = this.head;
 
     for (int i = 0; i < index; i++) {
+      if (cur.next == null) {
+        return null;
+      }
       cur = cur.next;
     }
 
@@ -74,7 +77,30 @@ public class DoublyLinkedList<E> implements List<E> {
 
   @Override
   public E remove(int index) {
-    return null;
+    if (this.head == null) {
+      return null;
+    }
+    Node<E> cur = this.head;
+
+    for (int i = 0; i < index; i++) {
+      if (cur.next == null) {
+        return null;
+      }
+      cur = cur.next;
+    }
+
+    if (cur == this.head) { // head인 경우엔 prev가 존재하지 않으므로 지정할 수 없음
+      this.head = cur.next;
+      cur.next.prev = cur.prev;
+    } else if (cur.next == null) { // tail인 경우엔 next가 존재하지 않으므로 지정할 수 없음
+      cur.prev.next = cur.next;
+    } else {
+      cur.prev.next = cur.next;
+      cur.next.prev = cur.prev;
+    }
+
+    this.size--;
+    return cur.data;
   }
 
   private static class Node<E> {
