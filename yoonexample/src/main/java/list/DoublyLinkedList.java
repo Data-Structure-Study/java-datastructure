@@ -40,5 +40,9 @@ public class DoublyLinkedList<E> implements List<E> {
     private E data;
     private Node<E> prev;
     private Node<E> next;
+
+    public Node(E data) {
+      this.data = data;
+    }
   }
 }
