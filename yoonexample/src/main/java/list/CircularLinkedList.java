@@ -67,7 +67,28 @@ public class CircularLinkedList<E> implements List<E> {
 
   @Override
   public E remove(int index) {
-    return null;
+    if (this.tail == null) {
+      return null;
+    }
+    Node<E> cur = this.tail.next;
+    Node<E> prev = this.tail;
+
+    for (int i = 0; i < index; i++) { // 삭제 대상까지 이동합니다.
+      prev = cur;
+      cur = cur.next;
+    }
+
+    if (cur == this.tail) { // 삭제 대상이 tail 노드라면
+      if (this.tail == this.tail.next) { // 삭제 대상이 마지막 노드라면
+        tail = null;
+      } else {
+        this.tail = prev;
+      }
+    }
+
+    prev.next = cur.next; // 이전 노드의 다음 노드를 삭제할 노드의 다음 노드로 지정
+    this.size--;
+    return cur.data;
   }
 
   private static class Node<T> {
