@@ -2,6 +2,7 @@ package list;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ListTest {
@@ -100,5 +101,17 @@ class ListTest {
     assertThat(list.get(1)).isEqualTo(11);
     assertThat(list.get(2)).isEqualTo(33);
     assertThat(list.get(3)).isEqualTo(11);
+  }
+
+  @Test
+  @DisplayName("CircularLinkedList 에러처리 확인")
+  void CircularLinkedList_에러처리_확인() {
+    List<Integer> list = new CircularLinkedList<>();
+
+    assertThat(list.get(3)).isNull();
+    assertThat(list.remove(4)).isNull();
+    assertThat(list.contains(null)).isFalse();
+    assertThat(list.size()).isEqualTo(0);
+    assertThat(list.isEmpty()).isTrue();
   }
 }
