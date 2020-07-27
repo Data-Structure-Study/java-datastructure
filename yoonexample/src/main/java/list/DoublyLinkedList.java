@@ -30,12 +30,43 @@ public class DoublyLinkedList<E> implements List<E> {
 
   @Override
   public boolean contains(Object o) {
+    if (this.head == null) {
+      return false;
+    }
+    Node<E> cur = this.head;
+    if (o == null) {
+      if (cur.data == null) {
+        return true;
+      }
+      while (cur.next != null) {
+        cur = cur.next;
+        if (cur.data == null) {
+          return true;
+        }
+      }
+    } else {
+      if (o.equals(cur.data)) {
+        return true;
+      }
+      while (cur.next != null) {
+        cur = cur.next;
+        if (o.equals(cur.data)) {
+          return true;
+        }
+      }
+    }
     return false;
   }
 
   @Override
   public E get(int index) {
-    return null;
+    Node<E> cur = this.head;
+
+    for (int i = 0; i < index; i++) {
+      cur = cur.next;
+    }
+
+    return cur.data;
   }
 
   @Override
