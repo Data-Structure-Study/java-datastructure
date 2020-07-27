@@ -116,6 +116,20 @@ class ListTest {
   }
 
   @Test
+  @DisplayName("CircularLinkedList 에러처리 확인2")
+  void CircularLinkedList_에러처리_확인2() {
+    List<Integer> list = new CircularLinkedList<>();
+
+    list.insert(1);
+
+    assertThat(list.get(3)).isEqualTo(1);
+    assertThat(list.contains(null)).isFalse();
+    assertThat(list.remove(4)).isEqualTo(1);
+    assertThat(list.size()).isZero();
+    assertThat(list.isEmpty()).isTrue();
+  }
+
+  @Test
   @DisplayName("DoublyLinkedList의 생성 및 초기화 테스트")
   void DoublyLinkedList의_생성_및_초기화_테스트() {
     List<Integer> list = new DoublyLinkedList<>();
