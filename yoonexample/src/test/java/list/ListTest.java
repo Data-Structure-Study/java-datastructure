@@ -139,4 +139,3 @@ class ListTest {
     assertThat(list.get(2)).isEqualTo(33);
   }
 }
-}
