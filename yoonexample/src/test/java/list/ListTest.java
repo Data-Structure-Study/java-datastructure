@@ -75,6 +75,7 @@ class ListTest {
     assertThat(list.get(2)).isEqualTo(22);
     assertThat(list.get(3)).isEqualTo(22);
     assertThat(list.get(4)).isEqualTo(33);
+    assertThat(list.get(5)).isEqualTo(11);
   }
 
   @Test
@@ -98,5 +99,6 @@ class ListTest {
     assertThat(list.get(0)).isEqualTo(11);
     assertThat(list.get(1)).isEqualTo(11);
     assertThat(list.get(2)).isEqualTo(33);
+    assertThat(list.get(3)).isEqualTo(11);
   }
 }
