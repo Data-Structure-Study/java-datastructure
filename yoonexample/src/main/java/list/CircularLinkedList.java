@@ -8,13 +8,13 @@ public class CircularLinkedList<E> implements List<E> {
   @Override
   public void insert(E data) { // 의도는 tail 위치에 새로운 노드를 추가하는 것입니다.
     Node<E> newNode = new Node<>(data);
-    if (tail == null) {
-      tail = newNode;
+    if (this.tail == null) {
+      this.tail = newNode;
       newNode.next = newNode;
     } else {
-      newNode.next = tail.next; // 새로 추가될 노드의 다음 노드가 기존의 첫번째 노드여야 합니다.
-      tail.next = newNode; // 마지막 노드의 다음 노드가 새로 추가될 노드여야 합니다.
-      tail = newNode; // 마지막 노드는 새로 추가된 노드여야 합니다.
+      newNode.next = this.tail.next; // 새로 추가될 노드의 다음 노드가 기존의 첫번째 노드여야 합니다.
+      this.tail.next = newNode; // 마지막 노드의 다음 노드가 새로 추가될 노드여야 합니다.
+      this.tail = newNode; // 마지막 노드는 새로 추가된 노드여야 합니다.
     }
     size++;
   }
@@ -31,10 +31,10 @@ public class CircularLinkedList<E> implements List<E> {
 
   @Override
   public boolean contains(Object o) {
-    if (tail == null) { // 초기화만 된 상태라면 데이터가 없으므로 false를 반환합니다.
+    if (this.tail == null) { // 초기화만 된 상태라면 데이터가 없으므로 false를 반환합니다.
       return false;
     }
-    Node<E> cur = tail.next; // head를 선택합니다.
+    Node<E> cur = this.tail.next; // head를 선택합니다.
     if (o == null) {
       for (int i = 0; i < this.size; i++) { // 사이즈만큼만 순회하도록 합니다.
         if (cur.data == null) {
@@ -55,10 +55,10 @@ public class CircularLinkedList<E> implements List<E> {
 
   @Override
   public E get(int index) {
-    if (tail == null) {
+    if (this.tail == null) {
       return null;
     }
-    Node<E> cur = tail.next;
+    Node<E> cur = this.tail.next;
     for (int i = 0; i < index; i++) {
       cur = cur.next;
     }
