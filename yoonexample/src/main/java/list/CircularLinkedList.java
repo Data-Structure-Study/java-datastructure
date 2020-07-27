@@ -60,6 +60,9 @@ public class CircularLinkedList<E> implements List<E> {
     }
     Node<E> cur = this.tail.next;
     for (int i = 0; i < index; i++) {
+      if (cur.next == null) {
+        return null;
+      }
       cur = cur.next;
     }
     return cur.data;
