@@ -7,7 +7,15 @@ public class DoublyLinkedList<E> implements List<E> {
 
   @Override
   public void insert(E data) {
+    Node<E> newNode = new Node<>(data);
 
+    if (head != null) { // head가 존재한다면
+      newNode.next = head; // 새로운 노드의 다음노드가 기존의 head노드
+      this.head.prev = newNode; // 기존 head노드의 이전노드가 새로운 노드
+    }
+
+    this.head = newNode;
+    size++;
   }
 
   @Override
