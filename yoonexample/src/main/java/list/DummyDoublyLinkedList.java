@@ -37,12 +37,62 @@ public class DummyDoublyLinkedList<E> implements List<E> {
 
   @Override
   public boolean contains(Object o) {
-    return false;
+    if (o == null) {
+      Node<E> cur = this.head.next;
+
+      while (cur.next != null) {
+        if (cur.data == null) {
+          return true;
+        }
+        cur = cur.next;
+      }
+
+      return false;
+    } else {
+      Node<E> cur = this.head.next;
+
+      while (cur.next != null) {
+        if (o.equals(cur.data)) {
+          return true;
+        }
+        cur = cur.next;
+      }
+
+      return false;
+    }
   }
 
   @Override
   public E get(int index) {
-    return null;
+    if (isEmpty()) {
+      return null;
+    }
+
+    Node<E> cur;
+
+    // 절반을 나눠서 가까운 부분에서 접근하도록 합니다.
+    if (index < (this.size / 2) + 1) { // 중간 값보다 작은 경우 앞에서부터 탐색합니다.
+      cur = this.head.next;
+
+      for (int i = 0; i < index; i++) {
+        if (cur.next == null) {
+          return null;
+        }
+        cur = cur.next;
+      }
+    } else {
+      cur = this.tail;
+      int reversedIndex = this.size - index;
+
+      for (int i = 0; i < reversedIndex; i++) {
+        if (cur.prev == null) {
+          return null;
+        }
+        cur = cur.prev;
+      }
+    }
+
+    return cur.data;
   }
 
   @Override
