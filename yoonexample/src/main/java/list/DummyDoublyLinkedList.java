@@ -97,7 +97,41 @@ public class DummyDoublyLinkedList<E> implements List<E> {
 
   @Override
   public E remove(int index) {
-    return null;
+    if (isEmpty()) {
+      return null;
+    }
+
+    Node<E> cur;
+
+    // 절반을 나눠서 가까운 부분에서 접근하도록 합니다.
+    if (index < (this.size / 2) + 1) { // 중간 값보다 작은 경우 앞에서부터 탐색합니다.
+      cur = this.head.next;
+
+      for (int i = 0; i < index; i++) {
+        if (cur.next == null) {
+          return null;
+        }
+        cur = cur.next;
+      }
+    } else {
+      cur = this.tail;
+      int reversedIndex = this.size - index;
+
+      if (reversedIndex < 1) { // 현재 조회 가능한 index보다 조회한 index가 큰 경우
+        return null;
+      }
+      for (int i = 0; i < reversedIndex; i++) {
+        if (cur.prev == null) {
+          return null;
+        }
+        cur = cur.prev;
+      }
+    }
+    cur.prev.next = cur.next;
+    cur.next.prev = cur.prev;
+    this.size--;
+
+    return cur.data;
   }
 
   private static class Node<T> {
