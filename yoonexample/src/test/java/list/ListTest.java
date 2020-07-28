@@ -227,9 +227,9 @@ class ListTest {
     assertThat(list.contains(22)).isTrue();
     assertThat(list.contains(33)).isTrue();
     assertThat(list.contains(44)).isFalse();
-    assertThat(list.get(0)).isEqualTo(33);
+    assertThat(list.get(0)).isEqualTo(11);
     assertThat(list.get(1)).isEqualTo(22);
-    assertThat(list.get(2)).isEqualTo(11);
+    assertThat(list.get(2)).isEqualTo(33);
   }
 
   @Test
@@ -250,7 +250,7 @@ class ListTest {
     assertThat(list.contains(22)).isFalse();
     assertThat(list.contains(33)).isTrue();
     assertThat(list.contains(44)).isFalse();
-    assertThat(list.get(0)).isEqualTo(33);
+    assertThat(list.get(0)).isEqualTo(11);
   }
 
   @Test
