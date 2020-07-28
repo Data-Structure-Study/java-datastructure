@@ -246,9 +246,9 @@ class ListTest {
 
     assertThat(list.isEmpty()).isFalse();
     assertThat(list.size()).isEqualTo(1);
-    assertThat(list.contains(11)).isFalse();
+    assertThat(list.contains(11)).isTrue();
     assertThat(list.contains(22)).isFalse();
-    assertThat(list.contains(33)).isTrue();
+    assertThat(list.contains(33)).isFalse();
     assertThat(list.contains(44)).isFalse();
     assertThat(list.get(0)).isEqualTo(11);
   }
