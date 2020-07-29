@@ -1,7 +1,9 @@
 package stack;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.EmptyStackException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +17,18 @@ class StackTest {
     assertThat(stack).isNotNull();
     assertThat(stack.isEmpty()).isTrue();
     assertThat(stack.size()).isEqualTo(0);
+  }
+
+  @Test
+  @DisplayName("Array Stack의 EmptyStackException 테스트")
+  void arrayStack의_EmptyStackException_테스트() {
+    Stack<Integer> stack = new ArrayStack<>();
+
+    assertThat(stack).isNotNull();
+    assertThat(stack.isEmpty()).isTrue();
+    assertThat(stack.size()).isEqualTo(0);
+    assertThatThrownBy(stack::pop).isInstanceOf(EmptyStackException.class);
+    assertThatThrownBy(stack::peek).isInstanceOf(EmptyStackException.class);
   }
 
   @Test
