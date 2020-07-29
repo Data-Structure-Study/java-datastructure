@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.EmptyStackException;
+
 public class ArrayStack<E> implements Stack<E> {
 
   private static final int INITIAL_CAPACITY = 100;
@@ -24,16 +26,24 @@ public class ArrayStack<E> implements Stack<E> {
 
   @Override
   public void push(E data) {
-
+    this.topIndex++;
+    arr[topIndex] = data;
   }
 
   @Override
   public E pop() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyStackException();
+    }
+    this.topIndex--;
+    return (E) arr[topIndex + 1];
   }
 
   @Override
   public E peek() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyStackException();
+    }
+    return (E) arr[topIndex];
   }
 }
