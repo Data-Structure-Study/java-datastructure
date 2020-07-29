@@ -47,10 +47,15 @@ class StackTest {
     assertThat(stack).isNotNull();
     assertThat(stack.isEmpty()).isFalse();
     assertThat(stack.size()).isEqualTo(5);
+    assertThat(stack.peek()).isEqualTo(5);
     assertThat(stack.pop()).isEqualTo(5);
+    assertThat(stack.peek()).isEqualTo(4);
     assertThat(stack.pop()).isEqualTo(4);
+    assertThat(stack.peek()).isEqualTo(3);
     assertThat(stack.pop()).isEqualTo(3);
+    assertThat(stack.peek()).isEqualTo(2);
     assertThat(stack.pop()).isEqualTo(2);
+    assertThat(stack.peek()).isEqualTo(1);
     assertThat(stack.pop()).isEqualTo(1);
     assertThat(stack.isEmpty()).isTrue();
     assertThat(stack.size()).isEqualTo(0);
