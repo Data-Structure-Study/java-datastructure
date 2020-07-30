@@ -3,7 +3,7 @@ package stack;
 public class InfixToPostfix {
 
   public char[] convertInputToCharArray(String input) {
-    return null;
+    return input.replace(" ", "").toCharArray();
   }
 
   public char[] convertInfixToPostfix(char[] input) {
