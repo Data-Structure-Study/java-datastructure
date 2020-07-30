@@ -1,6 +1,7 @@
 package stack;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static stack.OperatorPriority.getOperatorPriority;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -55,14 +56,12 @@ class InfixToPostfixTest {
     char openingParenthesis = '(';
     char noSign = ')';
 
-    assertThat(infixToPostfix.getOperatorPriority(multiplicationSign))
-        .isEqualTo(OperatorPriority.TOP);
-    assertThat(infixToPostfix.getOperatorPriority(divisionSign)).isEqualTo(OperatorPriority.TOP);
-    assertThat(infixToPostfix.getOperatorPriority(plusSign)).isEqualTo(OperatorPriority.MID);
-    assertThat(infixToPostfix.getOperatorPriority(minusSign)).isEqualTo(OperatorPriority.MID);
-    assertThat(infixToPostfix.getOperatorPriority(openingParenthesis))
-        .isEqualTo(OperatorPriority.BOT);
-    assertThat(infixToPostfix.getOperatorPriority(noSign)).isEqualTo(OperatorPriority.NONE);
+    assertThat(getOperatorPriority(multiplicationSign)).isEqualTo(OperatorPriority.TOP);
+    assertThat(getOperatorPriority(divisionSign)).isEqualTo(OperatorPriority.TOP);
+    assertThat(getOperatorPriority(plusSign)).isEqualTo(OperatorPriority.MID);
+    assertThat(getOperatorPriority(minusSign)).isEqualTo(OperatorPriority.MID);
+    assertThat(getOperatorPriority(openingParenthesis)).isEqualTo(OperatorPriority.BOT);
+    assertThat(getOperatorPriority(noSign)).isEqualTo(OperatorPriority.NONE);
   }
 
   @Test
@@ -71,7 +70,7 @@ class InfixToPostfixTest {
     char op1 = '*';
     char op2 = '+';
 
-    assertThat(infixToPostfix.compareOperator(op1, op2)).isEqualTo(1);
+    assertThat(infixToPostfix.compareOperator(op1, op2)).isGreaterThan(0);
   }
 
   @Test
@@ -89,6 +88,6 @@ class InfixToPostfixTest {
     char op1 = '(';
     char op2 = '+';
 
-    assertThat(infixToPostfix.compareOperator(op1, op2)).isEqualTo(-1);
+    assertThat(infixToPostfix.compareOperator(op1, op2)).isLessThan(0);
   }
 }
