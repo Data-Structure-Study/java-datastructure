@@ -30,6 +30,4 @@ public enum OperatorPriority {
   public int getPriority() {
     return priority;
   }
-
-
 }
