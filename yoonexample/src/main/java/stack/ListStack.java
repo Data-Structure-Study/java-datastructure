@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.EmptyStackException;
+
 public class ListStack<E> implements Stack<E> {
 
   private int size;
@@ -25,12 +27,21 @@ public class ListStack<E> implements Stack<E> {
 
   @Override
   public E pop() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyStackException();
+    }
+    Node<E> tmpNode = this.head;
+    this.head = this.head.next;
+    size--;
+    return tmpNode.data;
   }
 
   @Override
   public E peek() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyStackException();
+    }
+    return this.head.data;
   }
 
   private static class Node<T> {
