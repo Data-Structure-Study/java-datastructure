@@ -17,7 +17,10 @@ public class ListStack<E> implements Stack<E> {
 
   @Override
   public void push(E data) {
-
+    Node<E> newNode = new Node<>(data);
+    newNode.next = this.head;
+    this.head = newNode;
+    this.size++;
   }
 
   @Override
