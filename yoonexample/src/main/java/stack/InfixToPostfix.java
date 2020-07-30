@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class InfixToPostfix {
 
+  public char[] convertInputToPostfix(String input) {
+    return this.convertInfixToPostfix(this.convertInputToCharArray(input));
+  }
+
   public char[] convertInputToCharArray(String input) {
     return input.replace(" ", "").toCharArray();
   }
