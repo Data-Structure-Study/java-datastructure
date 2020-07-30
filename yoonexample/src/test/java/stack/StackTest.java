@@ -74,4 +74,70 @@ class StackTest {
     assertThat(stack.isEmpty()).isTrue();
     assertThat(stack.size()).isEqualTo(0);
   }
+
+  @Test
+  @DisplayName("List Stack의 생성 및 초기화")
+  void listStack의_생성_및_초기화() {
+    Stack<Integer> stack = new ListStack<>();
+
+    assertThat(stack).isNotNull();
+    assertThat(stack.isEmpty()).isTrue();
+    assertThat(stack.size()).isEqualTo(0);
+  }
+
+  @Test
+  @DisplayName("List Stack의 EmptyStackException 테스트")
+  void listStack의_EmptyStackException_테스트() {
+    Stack<Integer> stack = new ListStack<>();
+
+    assertThat(stack).isNotNull();
+    assertThat(stack.isEmpty()).isTrue();
+    assertThat(stack.size()).isEqualTo(0);
+    assertThatThrownBy(stack::pop).isInstanceOf(EmptyStackException.class);
+    assertThatThrownBy(stack::peek).isInstanceOf(EmptyStackException.class);
+  }
+
+  @Test
+  @DisplayName("List Stack에 데이터 5개 넣기")
+  void listStack에_데이터_5개_넣기() {
+    Stack<Integer> stack = new ListStack<>();
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    assertThat(stack).isNotNull();
+    assertThat(stack.isEmpty()).isFalse();
+    assertThat(stack.size()).isEqualTo(5);
+  }
+
+  @Test
+  @DisplayName("List Stack에 데이터 5개 넣고 뺴기")
+  void listStack에_데이터_5개_넣고_빼기() {
+    Stack<Integer> stack = new ListStack<>();
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    assertThat(stack).isNotNull();
+    assertThat(stack.isEmpty()).isFalse();
+    assertThat(stack.size()).isEqualTo(5);
+    assertThat(stack.peek()).isEqualTo(5);
+    assertThat(stack.pop()).isEqualTo(5);
+    assertThat(stack.peek()).isEqualTo(4);
+    assertThat(stack.pop()).isEqualTo(4);
+    assertThat(stack.peek()).isEqualTo(3);
+    assertThat(stack.pop()).isEqualTo(3);
+    assertThat(stack.peek()).isEqualTo(2);
+    assertThat(stack.pop()).isEqualTo(2);
+    assertThat(stack.peek()).isEqualTo(1);
+    assertThat(stack.pop()).isEqualTo(1);
+    assertThat(stack.isEmpty()).isTrue();
+    assertThat(stack.size()).isEqualTo(0);
+  }
 }
