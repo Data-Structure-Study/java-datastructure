@@ -49,7 +49,11 @@ public class ArrayQueue<E> implements Queue<E> {
 
   @Override
   public E peek() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyQueueException();
+    }
+
+    return (E) queueArray[nextIndex(this.front)];
   }
 
   private int nextIndex(int pos) {
