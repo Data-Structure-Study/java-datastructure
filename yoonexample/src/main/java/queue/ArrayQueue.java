@@ -1,5 +1,7 @@
 package queue;
 
+import exception.EmptyQueueException;
+
 public class ArrayQueue<E> implements Queue<E> {
 
   private static final int INITIAL_CAPACITY = 100;
@@ -36,7 +38,13 @@ public class ArrayQueue<E> implements Queue<E> {
 
   @Override
   public E dequeue() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyQueueException();
+    }
+
+    this.front = nextIndex(this.front);
+    this.size--;
+    return (E) queueArray[this.front];
   }
 
   @Override
