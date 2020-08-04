@@ -37,4 +37,8 @@ public class ArrayQueue<E> implements Queue<E> {
   public E peek() {
     return null;
   }
+
+  private int nextIndex(int pos) {
+    return pos == INITIAL_CAPACITY - 1 ? 0 : pos + 1;
+  }
 }
