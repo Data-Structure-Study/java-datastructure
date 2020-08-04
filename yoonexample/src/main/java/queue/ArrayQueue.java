@@ -25,7 +25,13 @@ public class ArrayQueue<E> implements Queue<E> {
 
   @Override
   public void enqueue(E data) {
+    if (nextIndex(this.rear) == this.front) { // 큐가 꽉 찬 경우(this.size == 100).
+      return;
+    }
 
+    this.rear = nextIndex(this.rear);
+    queueArray[this.rear] = data;
+    this.size++;
   }
 
   @Override
