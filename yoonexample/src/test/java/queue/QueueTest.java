@@ -12,7 +12,7 @@ class QueueTest {
   @Test
   @DisplayName("배열_기반_큐_생성_테스트")
   void 배열_기반_큐_생성_테스트() {
-    Queue<Integer> queue = ArrayQueue <>();
+    Queue<Integer> queue = new ArrayQueue<>();
 
     assertThat(queue).isNotNull();
     assertThat(queue.isEmpty()).isTrue();
@@ -22,7 +22,7 @@ class QueueTest {
   @Test
   @DisplayName("배열_기반_큐_생성_테스트")
   void 배열_기반_큐_EmptyQueueException_테스트() {
-    Queue<Integer> queue = ArrayQueue <>();
+    Queue<Integer> queue = new ArrayQueue<>();
 
     assertThat(queue).isNotNull();
     assertThat(queue.isEmpty()).isTrue();
@@ -34,7 +34,7 @@ class QueueTest {
   @Test
   @DisplayName("배열_기반_큐_데이터_저장_테스트")
   void 배열_기반_큐_데이터_저장_테스트() {
-    Queue<Integer> queue = ArrayQueue <>();
+    Queue<Integer> queue = new ArrayQueue<>();
 
     queue.enqueue(1);
     queue.enqueue(2);
@@ -50,7 +50,7 @@ class QueueTest {
   @Test
   @DisplayName("배열_기반_큐_데이터_저장_후_제거_테스트")
   void 배열_기반_큐_데이터_저장_후_제거_테스트() {
-    Queue<Integer> queue = ArrayQueue <>();
+    Queue<Integer> queue = new ArrayQueue<>();
 
     queue.enqueue(1);
     queue.enqueue(2);
