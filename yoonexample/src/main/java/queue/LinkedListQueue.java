@@ -18,7 +18,14 @@ public class LinkedListQueue<E> implements Queue<E> {
 
   @Override
   public void enqueue(E data) {
-
+    Node<E> newNode = new Node<>(data);
+    if (isEmpty()) {
+      this.front = newNode;
+    } else {
+      this.rear.next = newNode;
+    }
+    this.rear = newNode;
+    this.size++;
   }
 
   @Override
