@@ -1,5 +1,7 @@
 package queue;
 
+import exception.EmptyQueueException;
+
 public class LinkedListQueue<E> implements Queue<E> {
 
   private int size;
@@ -30,12 +32,23 @@ public class LinkedListQueue<E> implements Queue<E> {
 
   @Override
   public E dequeue() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyQueueException();
+    }
+    E retData = this.front.data;
+    this.front = this.front.next;
+    this.size--;
+
+    return retData;
   }
 
   @Override
   public E peek() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyQueueException();
+    }
+
+    return this.front.data;
   }
 
   private static class Node<T> {
