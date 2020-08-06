@@ -18,12 +18,30 @@ public class LinkedListDeque<E> implements Deque<E> {
 
   @Override
   public void addFirst(E data) {
+    Node<E> newNode = new Node<>(data);
+    if (isEmpty()) {
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+    }
 
+    newNode.next = this.head;
+    this.head = newNode;
+    this.size++;
   }
 
   @Override
   public void addLast(E data) {
+    Node<E> newNode = new Node<>(data);
+    if (isEmpty()) {
+      this.head = newNode;
+    } else {
+      this.tail.next = newNode;
+    }
 
+    newNode.prev = this.tail;
+    this.tail = newNode;
+    this.size++;
   }
 
   @Override
