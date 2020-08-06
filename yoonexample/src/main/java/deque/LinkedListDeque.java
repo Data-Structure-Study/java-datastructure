@@ -1,5 +1,7 @@
 package deque;
 
+import exception.EmptyDequeException;
+
 public class LinkedListDeque<E> implements Deque<E> {
 
   private int size;
@@ -46,22 +48,44 @@ public class LinkedListDeque<E> implements Deque<E> {
 
   @Override
   public E removeFirst() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyDequeException();
+    }
+
+    E data = this.head.data;
+    this.head = this.head.next;
+    this.size--;
+    return data;
   }
 
   @Override
   public E removeLast() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyDequeException();
+    }
+
+    E data = this.tail.data;
+    this.tail = this.tail.prev;
+    this.size--;
+    return data;
   }
 
   @Override
   public E getFirst() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyDequeException();
+    }
+
+    return this.head.data;
   }
 
   @Override
   public E getLast() {
-    return null;
+    if (isEmpty()) {
+      throw new EmptyDequeException();
+    }
+
+    return this.tail.data;
   }
 
   private static class Node<T> {
