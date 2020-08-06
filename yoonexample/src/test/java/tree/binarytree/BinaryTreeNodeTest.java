@@ -40,7 +40,7 @@ class BinaryTreeNodeTest {
     assertThat(bt4.getData()).isEqualTo(4);
     assertThat(bt1.getLeftSubTree().getData()).isEqualTo(2);
     assertThat(bt1.getRightSubTree().getData()).isEqualTo(3);
-    assertThat(bt1.getLeftSubTree().getLeftSubTree().getData()).isEqualTo(2);
-    assertThat(bt1.getLeftSubTree().getRightSubTree().getData()).isNull();
+    assertThat(bt1.getLeftSubTree().getLeftSubTree().getData()).isEqualTo(4);
+    assertThat(bt1.getLeftSubTree().getRightSubTree()).isNull();
   }
 }
