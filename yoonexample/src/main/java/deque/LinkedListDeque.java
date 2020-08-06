@@ -1,6 +1,6 @@
 package deque;
 
-public class LinkedLIstDeque<E> implements Deque<E> {
+public class LinkedListDeque<E> implements Deque<E> {
 
   private int size;
   private Node<E> head;

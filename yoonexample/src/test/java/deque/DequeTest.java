@@ -12,7 +12,7 @@ class DequeTest {
   @Test
   @DisplayName("덱의_생성_및_초기화_테스트")
   void 덱의_생성_및_초기화_테스트() {
-    Deque<Integer> deque = new LinkedLIstDeque<>();
+    Deque<Integer> deque = new LinkedListDeque<>();
 
     assertThat(deque).isNotNull();
     assertThat(deque.size()).isEqualTo(0);
@@ -22,7 +22,7 @@ class DequeTest {
   @Test
   @DisplayName("덱에_데이터_삽입_테스트")
   void 덱에_데이터_삽입_테스트() {
-    Deque<Integer> deque = new LinkedLIstDeque<>();
+    Deque<Integer> deque = new LinkedListDeque<>();
 
     deque.addFirst(3);
     deque.addFirst(2);
@@ -39,7 +39,7 @@ class DequeTest {
   @Test
   @DisplayName("덱에_데이터_삽입_앞에서_삭제_테스트")
   void 덱에_데이터_삽입_앞에서_삭제_테스트() {
-    Deque<Integer> deque = new LinkedLIstDeque<>();
+    Deque<Integer> deque = new LinkedListDeque<>();
 
     deque.addFirst(3);
     deque.addFirst(2);
@@ -81,7 +81,7 @@ class DequeTest {
   @Test
   @DisplayName("덱에_데이터_삽입_뒤에서_삭제_테스트")
   void 덱에_데이터_삽입_뒤에서_삭제_테스트() {
-    Deque<Integer> deque = new LinkedLIstDeque<>();
+    Deque<Integer> deque = new LinkedListDeque<>();
 
     deque.addFirst(3);
     deque.addFirst(2);
@@ -123,7 +123,7 @@ class DequeTest {
   @Test
   @DisplayName("덱이_비어있을_때_예외_처리_테스트")
   void 덱이_비어있을_때_예외_처리_테스트() {
-    Deque<Integer> deque = new LinkedLIstDeque<>();
+    Deque<Integer> deque = new LinkedListDeque<>();
 
     assertThat(deque).isNotNull();
     assertThat(deque.size()).isEqualTo(0);
