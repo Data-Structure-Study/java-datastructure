@@ -22,7 +22,7 @@ public class ExpressionTreeImpl implements ExpressionTree {
       stack.push(node);
     }
 
-    root = stack.pop();
+    this.root = stack.pop();
   }
 
   @Override
