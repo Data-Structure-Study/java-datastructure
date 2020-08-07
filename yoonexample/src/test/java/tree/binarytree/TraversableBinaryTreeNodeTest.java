@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 class TraversableBinaryTreeNodeTest {
 
   @Test
-  @DisplayName("이진_트리_생성_및_초기화_테스트")
-  void 이진_트리_생성_및_초기화_테스트() {
+  @DisplayName("순회_가능한_이진_트리_생성_및_초기화_테스트")
+  void 순회_가능한_이진_트리_생성_및_초기화_테스트() {
     TraversableBinaryTreeNode<Integer> bt = new TraversableBinaryTreeNodeImpl<>(1);
 
     assertThat(bt).isNotNull();
@@ -19,8 +19,8 @@ class TraversableBinaryTreeNodeTest {
   }
 
   @Test
-  @DisplayName("이진_트리_저장_및_출력_테스트")
-  void 이진_트리_저장_및_출력_테스트() {
+  @DisplayName("순회_가능한_이진_트리_저장_및_출력_테스트")
+  void 순회_가능한_이진_트리_저장_및_출력_테스트() {
     TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
     TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
     TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
@@ -45,8 +45,8 @@ class TraversableBinaryTreeNodeTest {
   }
 
   @Test
-  @DisplayName("이진_트리_전위_순회_테스트")
-  void 이진_트리_전위_순회_테스트() {
+  @DisplayName("순회_가능한_이진_트리_전위_순회_테스트")
+  void 순회_가능한_이진_트리_전위_순회_테스트() {
     TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
     TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
     TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
@@ -56,7 +56,7 @@ class TraversableBinaryTreeNodeTest {
     bt1.setRightSubTree(bt3);
     bt2.setLeftSubTree(bt4);
 
-    String expected = "1 2 4 3";
+    String expected = "1243";
     StringBuilder sb = new StringBuilder();
     bt1.preorderTraverse(sb);
 
@@ -64,8 +64,8 @@ class TraversableBinaryTreeNodeTest {
   }
 
   @Test
-  @DisplayName("이진_트리_중위_순회_테스트")
-  void 이진_트리_중위_순회_테스트() {
+  @DisplayName("순회_가능한_이진_트리_중위_순회_테스트")
+  void 순회_가능한_이진_트리_중위_순회_테스트() {
     TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
     TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
     TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
@@ -75,7 +75,7 @@ class TraversableBinaryTreeNodeTest {
     bt1.setRightSubTree(bt3);
     bt2.setLeftSubTree(bt4);
 
-    String expected = "4 2 1 3";
+    String expected = "4213";
     StringBuilder sb = new StringBuilder();
     bt1.inorderTraverse(sb);
 
@@ -83,8 +83,8 @@ class TraversableBinaryTreeNodeTest {
   }
 
   @Test
-  @DisplayName("이진_트리_후위_순회_테스트")
-  void 이진_트리_후위_순회_테스트() {
+  @DisplayName("순회_가능한_이진_트리_후위_순회_테스트")
+  void 순회_가능한_이진_트리_후위_순회_테스트() {
     TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
     TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
     TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
@@ -94,7 +94,7 @@ class TraversableBinaryTreeNodeTest {
     bt1.setRightSubTree(bt3);
     bt2.setLeftSubTree(bt4);
 
-    String expected = "4 2 3 1";
+    String expected = "4231";
     StringBuilder sb = new StringBuilder();
     bt1.postorderTraverse(sb);
 
