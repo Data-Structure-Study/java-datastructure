@@ -8,23 +8,17 @@ package tree.binarytree;
 public interface TraversableBinaryTreeNode<E> extends BinaryTreeNode<E> {
 
   /**
-   * 전위 순회한 정보를 반환합니다.
-   *
-   * @return 전위 순회 정보
+   * 전위 순회한 정보를 StringBuilder에 저장합니다.
    */
-  String preorderTraverse(StringBuilder sb);
+  void preorderTraverse(StringBuilder sb);
 
   /**
-   * 중위 순회한 정보를 반환합니다.
-   *
-   * @return 중위 순회 정보
+   * 중위 순회한 정보를 StringBuilder에 저장합니다.
    */
-  String inorderTraverse(StringBuilder sb);
+  void inorderTraverse(StringBuilder sb);
 
   /**
-   * 후위 순회한 정보를 반환합니다.
-   *
-   * @return 후위 순회 정보
+   * 후위 순회한 정보를 StringBuilder에 저장합니다.
    */
-  String postorderTraverse(StringBuilder sb);
+  void postorderTraverse(StringBuilder sb);
 }
