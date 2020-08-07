@@ -5,7 +5,7 @@ package tree.binarytree;
  *
  * @param <E> 파라미터 타입
  */
-public interface TraverableBinaryTreeNode<E> extends BinaryTreeNode<E> {
+public interface TraversableBinaryTreeNode<E> extends BinaryTreeNode<E> {
 
   /**
    * 전위 순회한 정보를 반환합니다.
