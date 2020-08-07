@@ -45,11 +45,11 @@ class ExpressionTreeTest {
     char[] postfixExpression = infixToPostfix.convertInputToPostfix(infixExpression);
 
     ExpressionTree expressionTree = new ExpressionTreeImpl(postfixExpression);
-    assertThat(expressionTree.evaluateTree()).isEqualTo(3);
+    assertThat(expressionTree.evaluateTree()).isEqualTo(15);
 
     StringBuilder sb = new StringBuilder();
     expressionTree.prefixTypeExpression(sb);
-    assertThat(sb.toString()).isEqualTo("*+127");
+    assertThat(sb.toString()).isEqualTo("+1*27");
 
     sb = new StringBuilder();
     expressionTree.infixTypeExpression(sb);
@@ -57,6 +57,6 @@ class ExpressionTreeTest {
 
     sb = new StringBuilder();
     expressionTree.postfixTypeExpression(sb);
-    assertThat(sb.toString()).isEqualTo("12+7*");
+    assertThat(sb.toString()).isEqualTo("127*+");
   }
 }
