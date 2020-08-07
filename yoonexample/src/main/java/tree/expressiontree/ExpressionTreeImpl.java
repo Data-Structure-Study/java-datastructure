@@ -32,16 +32,16 @@ public class ExpressionTreeImpl implements ExpressionTree {
 
   @Override
   public void prefixTypeExpression(StringBuilder sb) {
-    root.preorderTraverse(sb);
+    this.root.preorderTraverse(sb);
   }
 
   @Override
   public void infixTypeExpression(StringBuilder sb) {
-    root.inorderTraverse(sb);
+    this.root.inorderTraverse(sb);
   }
 
   @Override
   public void postfixTypeExpression(StringBuilder sb) {
-    root.postorderTraverse(sb);
+    this.root.postorderTraverse(sb);
   }
 }
