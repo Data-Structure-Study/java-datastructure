@@ -10,7 +10,7 @@ class TraversableBinaryTreeNodeTest {
   @Test
   @DisplayName("순회_가능한_이진_트리_생성_및_초기화_테스트")
   void 순회_가능한_이진_트리_생성_및_초기화_테스트() {
-    TraversableBinaryTreeNode<Integer> bt = new TraversableBinaryTreeNodeImpl<>(1);
+    TraversableBinaryTreeNode<Integer> bt = new LinkedTraversableBinaryTreeNode<>(1);
 
     assertThat(bt).isNotNull();
     assertThat(bt.getData()).isEqualTo(1);
@@ -21,10 +21,10 @@ class TraversableBinaryTreeNodeTest {
   @Test
   @DisplayName("순회_가능한_이진_트리_저장_및_출력_테스트")
   void 순회_가능한_이진_트리_저장_및_출력_테스트() {
-    TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
-    TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
-    TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
-    TraversableBinaryTreeNode<Integer> bt4 = new TraversableBinaryTreeNodeImpl<>(4);
+    TraversableBinaryTreeNode<Integer> bt1 = new LinkedTraversableBinaryTreeNode<>(1);
+    TraversableBinaryTreeNode<Integer> bt2 = new LinkedTraversableBinaryTreeNode<>(2);
+    TraversableBinaryTreeNode<Integer> bt3 = new LinkedTraversableBinaryTreeNode<>(3);
+    TraversableBinaryTreeNode<Integer> bt4 = new LinkedTraversableBinaryTreeNode<>(4);
 
     bt1.setLeftSubTree(bt2);
     bt1.setRightSubTree(bt3);
@@ -47,10 +47,10 @@ class TraversableBinaryTreeNodeTest {
   @Test
   @DisplayName("순회_가능한_이진_트리_전위_순회_테스트")
   void 순회_가능한_이진_트리_전위_순회_테스트() {
-    TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
-    TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
-    TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
-    TraversableBinaryTreeNode<Integer> bt4 = new TraversableBinaryTreeNodeImpl<>(4);
+    TraversableBinaryTreeNode<Integer> bt1 = new LinkedTraversableBinaryTreeNode<>(1);
+    TraversableBinaryTreeNode<Integer> bt2 = new LinkedTraversableBinaryTreeNode<>(2);
+    TraversableBinaryTreeNode<Integer> bt3 = new LinkedTraversableBinaryTreeNode<>(3);
+    TraversableBinaryTreeNode<Integer> bt4 = new LinkedTraversableBinaryTreeNode<>(4);
 
     bt1.setLeftSubTree(bt2);
     bt1.setRightSubTree(bt3);
@@ -66,10 +66,10 @@ class TraversableBinaryTreeNodeTest {
   @Test
   @DisplayName("순회_가능한_이진_트리_중위_순회_테스트")
   void 순회_가능한_이진_트리_중위_순회_테스트() {
-    TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
-    TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
-    TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
-    TraversableBinaryTreeNode<Integer> bt4 = new TraversableBinaryTreeNodeImpl<>(4);
+    TraversableBinaryTreeNode<Integer> bt1 = new LinkedTraversableBinaryTreeNode<>(1);
+    TraversableBinaryTreeNode<Integer> bt2 = new LinkedTraversableBinaryTreeNode<>(2);
+    TraversableBinaryTreeNode<Integer> bt3 = new LinkedTraversableBinaryTreeNode<>(3);
+    TraversableBinaryTreeNode<Integer> bt4 = new LinkedTraversableBinaryTreeNode<>(4);
 
     bt1.setLeftSubTree(bt2);
     bt1.setRightSubTree(bt3);
@@ -85,10 +85,10 @@ class TraversableBinaryTreeNodeTest {
   @Test
   @DisplayName("순회_가능한_이진_트리_후위_순회_테스트")
   void 순회_가능한_이진_트리_후위_순회_테스트() {
-    TraversableBinaryTreeNode<Integer> bt1 = new TraversableBinaryTreeNodeImpl<>(1);
-    TraversableBinaryTreeNode<Integer> bt2 = new TraversableBinaryTreeNodeImpl<>(2);
-    TraversableBinaryTreeNode<Integer> bt3 = new TraversableBinaryTreeNodeImpl<>(3);
-    TraversableBinaryTreeNode<Integer> bt4 = new TraversableBinaryTreeNodeImpl<>(4);
+    TraversableBinaryTreeNode<Integer> bt1 = new LinkedTraversableBinaryTreeNode<>(1);
+    TraversableBinaryTreeNode<Integer> bt2 = new LinkedTraversableBinaryTreeNode<>(2);
+    TraversableBinaryTreeNode<Integer> bt3 = new LinkedTraversableBinaryTreeNode<>(3);
+    TraversableBinaryTreeNode<Integer> bt4 = new LinkedTraversableBinaryTreeNode<>(4);
 
     bt1.setLeftSubTree(bt2);
     bt1.setRightSubTree(bt3);

@@ -2,18 +2,18 @@ package tree.expressiontree;
 
 import stack.ListStack;
 import stack.Stack;
+import tree.binarytree.LinkedTraversableBinaryTreeNode;
 import tree.binarytree.TraversableBinaryTreeNode;
-import tree.binarytree.TraversableBinaryTreeNodeImpl;
 
-public class ExpressionTreeImpl implements ExpressionTree {
+public class LinkedExpressionTree implements ExpressionTree {
 
   private TraversableBinaryTreeNode<Character> root;
 
-  public ExpressionTreeImpl(char[] postfixExpression) {
+  public LinkedExpressionTree(char[] postfixExpression) {
     Stack<TraversableBinaryTreeNode<Character>> stack = new ListStack<>();
 
     for (char expr : postfixExpression) {
-      TraversableBinaryTreeNode<Character> node = new TraversableBinaryTreeNodeImpl<>(expr);
+      TraversableBinaryTreeNode<Character> node = new LinkedTraversableBinaryTreeNode<>(expr);
       if (!Character.isDigit(expr)) { // 숫자가 아니라면, 연산자임
         node.setRightSubTree(stack.pop());
         node.setLeftSubTree(stack.pop());

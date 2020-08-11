@@ -1,12 +1,12 @@
 package tree.binarytree;
 
-public class BinaryTreeNodeImpl<E> implements BinaryTreeNode<E> {
+public class LinkedBinaryTreeNode<E> implements BinaryTreeNode<E> {
 
   private final E data;
   private BinaryTreeNode<E> left;
   private BinaryTreeNode<E> right;
 
-  public BinaryTreeNodeImpl(E data) {
+  public LinkedBinaryTreeNode(E data) {
     this.data = data;
   }
 
