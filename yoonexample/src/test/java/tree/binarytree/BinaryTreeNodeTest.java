@@ -10,7 +10,7 @@ class BinaryTreeNodeTest {
   @Test
   @DisplayName("이진_트리_생성_및_초기화_테스트")
   void 이진_트리_생성_및_초기화_테스트() {
-    BinaryTreeNode<Integer> bt = new BinaryTreeNodeImpl<>(1);
+    BinaryTreeNode<Integer> bt = new LinkedBinaryTreeNode<>(1);
 
     assertThat(bt).isNotNull();
     assertThat(bt.getData()).isEqualTo(1);
@@ -21,10 +21,10 @@ class BinaryTreeNodeTest {
   @Test
   @DisplayName("이진_트리_저장_및_출력_테스트")
   void 이진_트리_저장_및_출력_테스트() {
-    BinaryTreeNode<Integer> bt1 = new BinaryTreeNodeImpl<>(1);
-    BinaryTreeNode<Integer> bt2 = new BinaryTreeNodeImpl<>(2);
-    BinaryTreeNode<Integer> bt3 = new BinaryTreeNodeImpl<>(3);
-    BinaryTreeNode<Integer> bt4 = new BinaryTreeNodeImpl<>(4);
+    BinaryTreeNode<Integer> bt1 = new LinkedBinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> bt2 = new LinkedBinaryTreeNode<>(2);
+    BinaryTreeNode<Integer> bt3 = new LinkedBinaryTreeNode<>(3);
+    BinaryTreeNode<Integer> bt4 = new LinkedBinaryTreeNode<>(4);
 
     bt1.setLeftSubTree(bt2);
     bt1.setRightSubTree(bt3);

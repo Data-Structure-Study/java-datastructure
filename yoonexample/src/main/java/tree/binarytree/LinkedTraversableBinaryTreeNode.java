@@ -1,12 +1,12 @@
 package tree.binarytree;
 
-public class TraversableBinaryTreeNodeImpl<E> implements TraversableBinaryTreeNode<E> {
+public class LinkedTraversableBinaryTreeNode<E> implements TraversableBinaryTreeNode<E> {
 
   private final E data;
   private TraversableBinaryTreeNode<E> left;
   private TraversableBinaryTreeNode<E> right;
 
-  public TraversableBinaryTreeNodeImpl(E data) {
+  public LinkedTraversableBinaryTreeNode(E data) {
     this.data = data;
   }
 

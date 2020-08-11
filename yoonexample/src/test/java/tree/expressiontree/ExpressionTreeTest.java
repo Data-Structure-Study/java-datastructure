@@ -22,7 +22,7 @@ class ExpressionTreeTest {
     String infixExpression = "1 + 2";
     char[] postfixExpression = infixToPostfix.convertInputToPostfix(infixExpression);
 
-    ExpressionTree expressionTree = new ExpressionTreeImpl(postfixExpression);
+    ExpressionTree expressionTree = new LinkedExpressionTree(postfixExpression);
     assertThat(expressionTree.evaluateTree()).isEqualTo(3);
 
     StringBuilder sb = new StringBuilder();
@@ -44,7 +44,7 @@ class ExpressionTreeTest {
     String infixExpression = "1 + 2 * 7";
     char[] postfixExpression = infixToPostfix.convertInputToPostfix(infixExpression);
 
-    ExpressionTree expressionTree = new ExpressionTreeImpl(postfixExpression);
+    ExpressionTree expressionTree = new LinkedExpressionTree(postfixExpression);
     assertThat(expressionTree.evaluateTree()).isEqualTo(15);
 
     StringBuilder sb = new StringBuilder();
