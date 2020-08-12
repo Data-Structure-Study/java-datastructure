@@ -1,31 +1,35 @@
 package heap;
 
-public class ArraySimpleHeap<E> implements SimpleHeap<E> {
+import java.util.Comparator;
+
+public class ArrayUsefulHeap<E> implements UsefulHeap<E> {
 
   private static final int INITIAL_CAPACITY = 100 + 1;
 
   private int numOfData;
-  private HeapElement<E>[] heapArr;
+  private Object[] heapArr;
+  // 첫번째 인자가 크면 양수, 작으면 음수, 같으면 0을 반환한다.
+  private Comparator<E> comp;
 
-  public ArraySimpleHeap() {
-    this.heapArr = new HeapElement[INITIAL_CAPACITY];
+  public ArrayUsefulHeap(Comparator<E> comparator) {
+    this.heapArr = new Object[INITIAL_CAPACITY];
+    this.comp = comparator;
   }
 
   @Override
   public boolean isEmpty() {
-    return numOfData == 0;
+    return this.numOfData == 0;
   }
 
   @Override
-  public void insert(E data, int priority) {
+  public void insert(E data) {
     int index = numOfData + 1;
-    HeapElement<E> nextElement = new HeapElement<>(data, priority);
 
     while (index != 1) {
       int parentIndex = getParentIndex(index);
 
       // 부모 노드와 비교했을 때, 부모노드보다 우선순위가 높다면 서로의 위치를 바꾼다.
-      if (priority < this.heapArr[parentIndex].priority) {
+      if (comp.compare(data, (E) this.heapArr[parentIndex]) > 0) {
         this.heapArr[index] = this.heapArr[parentIndex];
         index = parentIndex;
       } else {
@@ -33,21 +37,21 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
       }
     }
 
-    this.heapArr[index] = nextElement;
+    this.heapArr[index] = data;
     this.numOfData += 1;
   }
 
   @Override
   public E delete() {
     int rootIndex = 1;
-    E retData = this.heapArr[rootIndex].data; // 루트노드에 존재하던 데이터
-    HeapElement<E> lastElement = this.heapArr[this.numOfData]; // 마지막 노드
+    E retData = (E) this.heapArr[rootIndex]; // 루트노드에 존재하던 데이터
+    E lastElement = (E) this.heapArr[this.numOfData]; // 마지막 노드
 
     int parentIndex = rootIndex; // 루트로 옮기는 것을 의미
     int childIndex = getHighPriorityChildIndex(parentIndex); // 더 우선순위인 자식노드
 
     while (childIndex > 0) { // 부모노드가 단말노드가 아니라면
-      if (lastElement.priority <= this.heapArr[childIndex].priority) { // 마지막 노드가 우선순위가 높다면
+      if (comp.compare(lastElement, (E) this.heapArr[childIndex]) >= 0) { // 마지막 노드가 우선순위가 높다면
         break;
       }
       this.heapArr[parentIndex] = this.heapArr[childIndex]; // 자식 노드와 부모노드의 위치를 변경
@@ -106,24 +110,13 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
     }
 
     int rightChildIndex = this.getRightChildIndex(currentIndex);
-    int leftChildNodePriority = this.heapArr[leftChildIndex].priority;
-    int rightChildNodePriority = this.heapArr[rightChildIndex].priority;
+    E leftChildNode = (E) this.heapArr[leftChildIndex];
+    E rightChildNode = (E) this.heapArr[rightChildIndex];
 
     // 우선순위는 낮은것이 더 우위이므로 왼쪽노드가 더 우선순위가 낮다면
-    if (leftChildNodePriority > rightChildNodePriority) {
+    if (comp.compare(leftChildNode, rightChildNode) < 0) {
       return rightChildIndex;
     }
     return leftChildIndex;
-  }
-
-  private static class HeapElement<T> {
-
-    private final T data;
-    private final int priority;
-
-    public HeapElement(T data, int priority) {
-      this.data = data;
-      this.priority = priority;
-    }
   }
 }
