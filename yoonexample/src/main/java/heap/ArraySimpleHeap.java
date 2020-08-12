@@ -44,7 +44,7 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
     HeapElement<E> lastElement = this.heapArr[this.numOfData]; // 마지막 노드
 
     int parentIndex = rootIndex; // 루트로 옮기는 것을 의미
-    int childIndex = getHighPrioirtyChildIndex(parentIndex); // 더 우선순위인 자식노드
+    int childIndex = getHighPriorityChildIndex(parentIndex); // 더 우선순위인 자식노드
 
     while (childIndex > 0) { // 부모노드가 단말노드가 아니라면
       if (lastElement.priority <= this.heapArr[childIndex].priority) { // 마지막 노드가 우선순위가 높다면
@@ -52,7 +52,7 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
       }
       this.heapArr[parentIndex] = this.heapArr[childIndex]; // 자식 노드와 부모노드의 위치를 변경
       parentIndex = childIndex;
-      childIndex = getHighPrioirtyChildIndex(parentIndex);
+      childIndex = getHighPriorityChildIndex(parentIndex);
     }
 
     this.heapArr[parentIndex] = lastElement; // 마지막에 위치했던 노드를 한 번에 옮긴다.
@@ -96,7 +96,7 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
    * @param currentIndex 판단의 기준이 되는 노드
    * @return 우선순위가 더 높은 자식 노드의 인덱스
    */
-  private int getHighPrioirtyChildIndex(int currentIndex) {
+  private int getHighPriorityChildIndex(int currentIndex) {
     int leftChildIndex = this.getLeftChildIndex(currentIndex);
     if (leftChildIndex > this.numOfData) { // 존재하지 않는 노드라면
       return 0;
