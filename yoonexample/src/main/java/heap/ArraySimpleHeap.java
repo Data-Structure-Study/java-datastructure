@@ -18,7 +18,23 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
 
   @Override
   public void insert(E data, int priority) {
+    int index = numOfData + 1;
+    HeapElement<E> nextElement = new HeapElement<>(data, priority);
 
+    while (index != 1) {
+      int parentIndex = getParentIndex(index);
+
+      // 부모 노드와 비교했을 때, 부모노드보다 우선순위가 높다면 서로의 위치를 바꾼다.
+      if (priority < this.heapArr[parentIndex].priority) {
+        this.heapArr[index] = this.heapArr[parentIndex];
+        index = parentIndex;
+      } else {
+        break;
+      }
+    }
+
+    this.heapArr[index] = nextElement;
+    this.numOfData += 1;
   }
 
   @Override
