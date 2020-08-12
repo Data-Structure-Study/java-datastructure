@@ -39,7 +39,25 @@ public class ArraySimpleHeap<E> implements SimpleHeap<E> {
 
   @Override
   public E delete() {
-    return null;
+    int rootIndex = 1;
+    E retData = this.heapArr[rootIndex].data; // 루트노드에 존재하던 데이터
+    HeapElement<E> lastElement = this.heapArr[this.numOfData]; // 마지막 노드
+
+    int parentIndex = rootIndex; // 루트로 옮기는 것을 의미
+    int childIndex = getHighPrioirtyChildIndex(parentIndex); // 더 우선순위인 자식노드
+
+    while (childIndex > 0) { // 부모노드가 단말노드가 아니라면
+      if (lastElement.priority <= this.heapArr[childIndex].priority) { // 마지막 노드가 우선순위가 높다면
+        break;
+      }
+      this.heapArr[parentIndex] = this.heapArr[childIndex]; // 자식 노드와 부모노드의 위치를 변경
+      parentIndex = childIndex;
+      childIndex = getHighPrioirtyChildIndex(parentIndex);
+    }
+
+    this.heapArr[parentIndex] = lastElement; // 마지막에 위치했던 노드를 한 번에 옮긴다.
+    this.numOfData -= 1;
+    return retData;
   }
 
   /**
