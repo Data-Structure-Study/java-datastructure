@@ -28,9 +28,9 @@ public class RadixSort {
       }
 
       // 버킷 수 만큼 반복
+      int arrayIndex = 0;
       for (int j = 0; j < BUCKET_NUM; j++) {
         // 버킷에 저장되어 있는 것을 순서대로 꺼내서 다시 array에 저장
-        int arrayIndex = 0;
         while (!buckets[j].isEmpty()) {
           array[arrayIndex++] = buckets[j].dequeue();
         }
