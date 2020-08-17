@@ -10,6 +10,9 @@ public class InterpolSearch {
 
     idx = iSearch(arr, 4);
     printSearchInfo(idx);
+
+    idx = iSearch(arr, 2);
+    printSearchInfo(idx);
   }
 
   public static int iSearch(int[] arr, int target) {
