@@ -20,7 +20,7 @@ public class InterpolSearch {
     int last = arr.length - 1; // 탐색 대상의 마지막 인덱스 값
     int mid;
 
-    while (first <= last) {
+    while (!(arr[first] > target || arr[last] < target)) {
       mid = (int) ((double) (target - arr[first]) / (arr[last] - arr[first]) * (last - first))
           + first;
 
