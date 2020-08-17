@@ -15,17 +15,29 @@ public class LinkedBinarySearchTreeNode<E> implements BinarySearchTreeNode<E> {
   }
 
   @Override
-  public E getNodeData() {
-    return node.getData();
-  }
+  public BinaryTreeNode<E> search(E target) {
+    BinaryTreeNode<E> curNode = this.node;
 
-  @Override
-  public BinarySearchTreeNode<E> search(E data) {
+    while (curNode != null) {
+      E curNodeData = curNode.getData();
+      if (curNodeData.equals(target)) {
+        return curNode;
+      } else if (comparator.compare(curNodeData, target) > 0) {
+        curNode = curNode.getLeftSubTree();
+      } else {
+        curNode = curNode.getRightSubTree();
+      }
+    }
+
     return null;
   }
 
   @Override
   public void insert(E data) {
+    if (data == null) {
+      return;
+    }
+
     BinaryTreeNode<E> curNode = this.node;
     BinaryTreeNode<E> parentNode = null;
 
