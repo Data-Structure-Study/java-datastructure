@@ -2,6 +2,7 @@ package search.binarysearchtree;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Comparator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,8 @@ class BinarySearchTreeNodeTest {
   @Test
   @DisplayName("이진_탐색_트리_테스트")
   void 이진_탐색_트리_테스트() {
-    BinarySearchTreeNode<Integer> bstRoot = new LinkedBinarySearchTreeNode<>(5);
+    BinarySearchTreeNode<Integer> bstRoot = new LinkedBinarySearchTreeNode<>(5, (Comparator
+        .comparingInt(o -> o)));
     BinarySearchTreeNode<Integer> searchNode;
 
     bstRoot.insert(1);
