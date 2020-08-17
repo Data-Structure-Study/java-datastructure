@@ -11,10 +11,9 @@ public interface BinarySearchTreeNode<E> {
   /**
    * 해당 노드에 저장된 데이터를 반환합니다.
    *
-   * @param bstNode 노드에 있는 데이터를 반환할 노드
    * @return 노드에 저장된 데이터
    */
-  E getNodeData(BinarySearchTreeNode<E> bstNode);
+  E getNodeData();
 
   /**
    * 해당 데이터를 가지고 있는 노드를 찾습니다.
