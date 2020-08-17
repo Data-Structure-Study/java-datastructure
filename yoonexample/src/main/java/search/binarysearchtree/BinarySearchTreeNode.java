@@ -18,10 +18,10 @@ public interface BinarySearchTreeNode<E> {
   /**
    * 해당 데이터를 가지고 있는 노드를 찾습니다.
    *
-   * @param data 찾으려고 하는 데이터
+   * @param target 찾으려고 하는 데이터
    * @return 해당 데이터를 가지고 있는 노드
    */
-  BinarySearchTreeNode<E> search(E data);
+  BinarySearchTreeNode<E> search(E target);
 
   /**
    * 해당 데이터를 BST에 추가합니다.
