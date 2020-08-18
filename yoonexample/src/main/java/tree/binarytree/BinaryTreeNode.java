@@ -42,4 +42,32 @@ public interface BinaryTreeNode<E> {
    * @param subTree 대상이 될 노드
    */
   void setRightSubTree(BinaryTreeNode<E> subTree);
+
+  /**
+   * 왼쪽 서브트리를 제거하고 반환합니다.
+   *
+   * @return 왼쪽 서브트리
+   */
+  BinaryTreeNode<E> removeLeftSubTree();
+
+  /**
+   * 오른쪽 서브트리를 제거하고 반환합니다.
+   *
+   * @return 오른쪽 서브트리
+   */
+  BinaryTreeNode<E> removeRightSubTree();
+
+  /**
+   * 왼쪽 서브트리를 입력된 서브트리로 대체합니다.
+   *
+   * @param subTree 왼쪽 서브트리를 대체할 서브트리
+   */
+  void changeLeftSubTree(BinaryTreeNode<E> subTree);
+
+  /**
+   * 오른쪽 서브트리를 입력된 서브트리로 대체합니다.
+   *
+   * @param subTree 오른쪽 서브트리를 대체할 서브트리
+   */
+  void changeRightSubTree(BinaryTreeNode<E> subTree);
 }
