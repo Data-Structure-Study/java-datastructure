@@ -34,4 +34,28 @@ public class LinkedBinaryTreeNode<E> implements BinaryTreeNode<E> {
   public void setRightSubTree(BinaryTreeNode<E> subTree) {
     this.right = subTree;
   }
+
+  @Override
+  public BinaryTreeNode<E> removeLeftSubTree() {
+    BinaryTreeNode<E> deleteNode = this.getLeftSubTree();
+    this.left = null;
+    return deleteNode;
+  }
+
+  @Override
+  public BinaryTreeNode<E> removeRightSubTree() {
+    BinaryTreeNode<E> deleteNode = this.getRightSubTree();
+    this.right = null;
+    return deleteNode;
+  }
+
+  @Override
+  public void changeLeftSubTree(BinaryTreeNode<E> subTree) {
+    this.left = subTree;
+  }
+
+  @Override
+  public void changeRightSubTree(BinaryTreeNode<E> subTree) {
+    this.right = subTree;
+  }
 }
