@@ -24,4 +24,12 @@ public interface BinarySearchTreeNode<E> {
    * @param data BST에 저장할 데이터
    */
   void insert(E data);
+
+  /**
+   * 해당 데이터를 BST에서 제거하고 해당 데이터를 저장한 노드를 반환합니다.
+   *
+   * @param target 제거할 데이터
+   * @return 제거된 데이터를 저장한 노드
+   */
+  BinaryTreeNode<E> remove(E target);
 }
