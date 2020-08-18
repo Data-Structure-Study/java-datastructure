@@ -47,8 +47,7 @@ class BinarySearchTreeNodeTest {
     int doubleSubTreeNodeData = 8;
 
     BinarySearchTreeNode<Integer> bstRoot = new LinkedBinarySearchTreeNode<>(RootNodeData,
-        (Comparator
-            .comparingInt(o -> o)));
+        (Comparator.comparingInt(o -> o)));
 
     bstRoot.insert(doubleSubTreeNodeData);
     bstRoot.insert(1);
@@ -73,8 +72,7 @@ class BinarySearchTreeNodeTest {
   @DisplayName("이진_탐색_트리_제거_테스트2")
   void 이진_탐색_트리_제거_테스트2() {
     BinarySearchTreeNode<Integer> bstRoot = new LinkedBinarySearchTreeNode<>(5,
-        (Comparator
-            .comparingInt(o -> o)));
+        (Comparator.comparingInt(o -> o)));
 
     bstRoot.insert(8);
     bstRoot.insert(1);
