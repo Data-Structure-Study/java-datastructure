@@ -7,7 +7,7 @@ import tree.binarytree.LinkedBinaryTreeNode;
 public class LinkedBinarySearchTreeNode<E> implements BinarySearchTreeNode<E> {
 
   private final Comparator<E> comparator;
-  private BinaryTreeNode<E> node;
+  protected BinaryTreeNode<E> node;
 
   public LinkedBinarySearchTreeNode(E data, Comparator<E> comparator) {
     this.node = new LinkedBinaryTreeNode<>(data);
