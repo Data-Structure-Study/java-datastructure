@@ -29,4 +29,28 @@ public class AVLTreeNode<E> extends LinkedBinarySearchTreeNode<E> {
 
     return leftHeight - rightHeight;
   }
+
+  private BinaryTreeNode<E> rotateLL(BinaryTreeNode<E> binaryTreeNode) {
+    // LL 회전을 위한 준비
+    BinaryTreeNode<E> parentNode = binaryTreeNode;
+    BinaryTreeNode<E> childNode = parentNode.getLeftSubTree();
+
+    // LL 회전
+    parentNode.changeLeftSubTree(childNode.getRightSubTree());
+    childNode.changeRightSubTree(parentNode);
+
+    return childNode; // 변경된 루트 노드 반환
+  }
+
+  private BinaryTreeNode<E> rotateRR(BinaryTreeNode<E> binaryTreeNode) {
+    // RR 회전을 위한 준비
+    BinaryTreeNode<E> parentNode = binaryTreeNode;
+    BinaryTreeNode<E> childNode = parentNode.getRightSubTree();
+
+    // RR 회전
+    parentNode.changeRightSubTree(childNode.getLeftSubTree());
+    childNode.changeLeftSubTree(parentNode);
+
+    return childNode; // 변경된 루트 노드 반환
+  }
 }
