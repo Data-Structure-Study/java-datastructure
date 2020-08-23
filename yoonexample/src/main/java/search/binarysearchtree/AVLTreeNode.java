@@ -9,6 +9,19 @@ public class AVLTreeNode<E> extends LinkedBinarySearchTreeNode<E> {
     super(data, comparator);
   }
 
+  @Override
+  public void insert(E data) {
+    super.insert(data);
+    rebalance();
+  }
+
+  @Override
+  public BinaryTreeNode<E> remove(E target) {
+    BinaryTreeNode<E> removeNode = super.remove(target);
+    rebalance();
+    return removeNode;
+  }
+
   private int getHeight(BinaryTreeNode<E> binaryTreeNode) {
     if (binaryTreeNode == null) {
       return 0;
