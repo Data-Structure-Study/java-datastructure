@@ -71,4 +71,23 @@ public class AVLTreeNode<E> extends LinkedBinarySearchTreeNode<E> {
     parentNode.changeRightSubTree(rotateLL(childNode)); // 부분적 LL회전
     return rotateRR(parentNode); // RR회전
   }
+
+  private void rebalance() {
+    int equilibriumFactor = getEquilibriumFactor(super.node);
+
+    if (equilibriumFactor > 1) { // LL OR LR
+      if (getEquilibriumFactor(super.node.getLeftSubTree()) > 0) {
+        super.node = rotateLL(super.node);
+      } else {
+        super.node = rotateLR(super.node);
+      }
+    }
+    if (equilibriumFactor < -1) { // RR OR RL
+      if (getEquilibriumFactor(super.node.getRightSubTree()) < 0) {
+        super.node = rotateRR(super.node);
+      } else {
+        super.node = rotateRL(super.node);
+      }
+    }
+  }
 }
