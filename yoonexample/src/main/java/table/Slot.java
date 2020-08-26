@@ -20,7 +20,7 @@ public class Slot<K, V> {
     this.status = INUSE;
   }
 
-  public V deleteData(V value) {
+  public V deleteData() {
     V returnValue = this.value;
     this.key = null;
     this.value = null;
