@@ -24,7 +24,7 @@ class TableTest {
         new Person(20202457, "알렉스", "수원"),
         new Person(20201390, "에버", "서울어디였는데...")
     );
-    table = new SimpleTable<>();
+    table = new SimpleTable<>(hashFunction);
   }
 
   @Test
