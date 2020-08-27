@@ -7,6 +7,7 @@ import java.util.List;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import table.chainedtable.ChainedHashTable;
 
 class TableTest {
 
@@ -80,6 +81,21 @@ class TableTest {
 
   @Test
   void 체이닝_테이블_탐색_테스트() {
+    table = new ChainedHashTable<>(hashFunction);
+    for (Person person : persons) {
+      table.insert(person.getId(), person);
+    }
+
+    Person searchedPerson;
+    for (Person targetPerson : persons) {
+      searchedPerson = table.search(targetPerson.getId());
+      assertThat(searchedPerson).isNotNull().isEqualToComparingFieldByField(targetPerson);
+    }
+  }
+
+  @Test
+  void 체이닝_테이블_중복_탐색_테스트() {
+    hashFunction = key -> 0;
     table = new ChainedHashTable<>(hashFunction);
     for (Person person : persons) {
       table.insert(person.getId(), person);
