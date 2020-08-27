@@ -65,4 +65,44 @@ class TableTest {
       assertThat(searchedPerson).isNotNull().isEqualToComparingFieldByField(targetPerson);
     }
   }
+
+  @Test
+  void 체이닝_테이블_입력_테스트() {
+    table = new ChainedHashTable<>(hashFunction);
+    try {
+      for (Person person : persons) {
+        table.insert(person.getId(), person);
+      }
+    } catch (Exception e) {
+      fail("입력 테스트 실패");
+    }
+  }
+
+  @Test
+  void 체이닝_테이블_탐색_테스트() {
+    table = new ChainedHashTable<>(hashFunction);
+    for (Person person : persons) {
+      table.insert(person.getId(), person);
+    }
+
+    Person searchedPerson;
+    for (Person targetPerson : persons) {
+      searchedPerson = table.search(targetPerson.getId());
+      assertThat(searchedPerson).isNotNull().isEqualToComparingFieldByField(targetPerson);
+    }
+  }
+
+  @Test
+  void 체이닝_테이블_삭제_테스트() {
+    table = new ChainedHashTable<>(hashFunction);
+    for (Person person : persons) {
+      table.insert(person.getId(), person);
+    }
+
+    Person searchedPerson;
+    for (Person targetPerson : persons) {
+      searchedPerson = table.delete(targetPerson.getId());
+      assertThat(searchedPerson).isNotNull().isEqualToComparingFieldByField(targetPerson);
+    }
+  }
 }
