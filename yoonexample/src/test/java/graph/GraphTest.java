@@ -11,7 +11,7 @@ class GraphTest {
 
   @BeforeEach
   void setUp() {
-    graph = new ListGrpah(5);
+    graph = new ListGraph(5, Point.class);
   }
 
   @Test
@@ -20,8 +20,24 @@ class GraphTest {
   }
 
   @Test
-  void 그래프_정점_연결_테스트() {
+  void 방향_그래프_정점_연결_테스트() {
     graph.addEdge(Point.A, Point.B);
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B\nB: A\n");
+
+    graph.addEdge(Point.A, Point.D);
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B D\nB: A\nD: A\n");
+
+    graph.addEdge(Point.B, Point.C);
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B D\nB: A C\nC: B\nD: A\n");
+
+    graph.addEdge(Point.C, Point.D);
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B D\nB: A C\nC: B D\nD: A C\n");
+
+    graph.addEdge(Point.D, Point.E);
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B D\nB: A C\nC: B D\nD: A C E\nE: D\n");
+
+    graph.addEdge(Point.E, Point.A);
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B D E\nB: A C\nC: B D\nD: A C E\nE: D A\n");
   }
 
   private enum Point {
