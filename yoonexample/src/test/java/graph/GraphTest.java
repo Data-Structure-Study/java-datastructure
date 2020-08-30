@@ -21,6 +21,10 @@ class GraphTest {
 
   @Test
   void 그래프_정점_연결_테스트() {
-    graph.addEdge();
+    graph.addEdge(Point.A, Point.B);
+  }
+
+  private enum Point {
+    A, B, C, D, E, F, G, H, I, J
   }
 }

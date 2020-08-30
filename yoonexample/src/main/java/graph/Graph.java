@@ -13,7 +13,7 @@ public interface Graph {
    * @param fromV 시작하는 정점
    * @param toV   도달하는 정점
    */
-  void addEdge(int fromV, int toV);
+  void addEdge(Enum<?> fromV, Enum<?> toV);
 
   /**
    * 그래프의 간선정보를 반환합니다.
