@@ -16,7 +16,7 @@ public interface Graph {
   void addEdge(int fromV, int toV);
 
   /**
-   * 그래프의 간선정보를 출력합니다.
+   * 그래프의 간선정보를 반환합니다.
    */
-  void showGraphEdgeInfo();
+  String showGraphEdgeInfo();
 }
