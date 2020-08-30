@@ -20,10 +20,28 @@ public class ListGraph implements Graph {
 
   @Override
   public void addEdge(Enum<?> fromV, Enum<?> toV) {
+    vertexes[fromV.ordinal()].insert(toV);
+    vertexes[toV.ordinal()].insert(fromV);
   }
 
   @Override
   public String showGraphEdgeInfo() {
-    return null;
+    StringBuilder sb = new StringBuilder();
+
+    for (List<Enum<?>> vertex : vertexes) {
+      if (vertex.size() > 1) {
+        for (int i = 0; i < vertex.size(); i++) {
+          sb.append(vertex.get(i));
+          if (i == 0) {
+            sb.append(": ");
+          } else if (i < vertex.size() - 1) {
+            sb.append(" ");
+          }
+        }
+        sb.append("\n");
+      }
+    }
+
+    return sb.toString();
   }
 }
