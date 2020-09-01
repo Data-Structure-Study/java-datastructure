@@ -3,6 +3,8 @@ package graph;
 import java.util.StringJoiner;
 import list.DummyDoublyLinkedList;
 import list.List;
+import queue.LinkedListQueue;
+import queue.Queue;
 import stack.ListStack;
 import stack.Stack;
 
@@ -68,6 +70,33 @@ public class ListGraph implements Graph {
           vertexStack.push(vertex);
         }
       }
+    }
+
+    return sj.toString();
+  }
+
+  @Override
+  public String breadthFirstSearch(Enum<?> startV) {
+    boolean[] visited = new boolean[vertices.length];
+    StringJoiner sj = new StringJoiner(" ");
+    Queue<Enum<?>> vertexQueue = new LinkedListQueue<>();
+    vertexQueue.enqueue(startV);
+
+    while (!vertexQueue.isEmpty()) {
+      Enum<?> visitV = vertexQueue.dequeue();
+
+      if (visitVertex(visited, visitV)) {
+        sj.add(visitV.toString());
+      }
+
+      List<Enum<?>> vertexList = vertices[visitV.ordinal()];
+      for (int i = 0; i < vertexList.size(); i++) {
+        Enum<?> vertex = vertexList.get(i);
+        if (!visited[vertex.ordinal()]) {
+          vertexQueue.enqueue(vertex);
+        }
+      }
+
     }
 
     return sj.toString();
