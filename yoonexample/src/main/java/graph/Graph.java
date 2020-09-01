@@ -29,4 +29,12 @@ public interface Graph {
    * @return startV를 기점으로 하는 DFS 결과
    */
   String depthFirstSearch(Enum<?> startV);
+
+  /**
+   * startV를 기점으로 BFS를 수행한 결과를 반환합니다.
+   *
+   * @param startV BFS를 시작하는 정점
+   * @return startV를 기점으로 하는 BFS 결과
+   */
+  String breadthFirstSearch(Enum<?> startV);
 }
