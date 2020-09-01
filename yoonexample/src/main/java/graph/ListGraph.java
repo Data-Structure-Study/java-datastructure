@@ -60,7 +60,6 @@ public class ListGraph implements Graph {
 
       if (visitVertex(visited, visitV)) {
         sj.add(visitV.toString());
-        vertexStack.push(visitV);
       }
       List<Enum<?>> vertexList = vertices[visitV.ordinal()];
       for (int i = 0; i < vertexList.size(); i++) {
