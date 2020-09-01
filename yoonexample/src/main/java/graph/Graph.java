@@ -17,6 +17,24 @@ public interface Graph {
 
   /**
    * 그래프의 간선정보를 반환합니다.
+   *
+   * @return 그래프의 간선정보
    */
   String showGraphEdgeInfo();
+
+  /**
+   * startV를 기점으로 DFS를 수행한 결과를 반환합니다.
+   *
+   * @param startV DFS를 시작하는 정점
+   * @return startV를 기점으로 하는 DFS 결과
+   */
+  String depthFirstSearch(Enum<?> startV);
+
+  /**
+   * startV를 기점으로 BFS를 수행한 결과를 반환합니다.
+   *
+   * @param startV BFS를 시작하는 정점
+   * @return startV를 기점으로 하는 BFS 결과
+   */
+  String breadthFirstSearch(Enum<?> startV);
 }
