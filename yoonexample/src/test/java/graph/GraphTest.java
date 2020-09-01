@@ -55,11 +55,11 @@ class GraphTest {
   void bfsTest() {
     setVertices();
 
-    assertThat(graph.breadthFirstSearch(Point.A)).isEqualTo("A E B D C");
-    assertThat(graph.breadthFirstSearch(Point.B)).isEqualTo("B E D A C");
-    assertThat(graph.breadthFirstSearch(Point.C)).isEqualTo("C D A E B");
-    assertThat(graph.breadthFirstSearch(Point.D)).isEqualTo("D E C B A");
-    assertThat(graph.breadthFirstSearch(Point.E)).isEqualTo("E D B A C");
+    assertThat(graph.breadthFirstSearch(Point.A)).isEqualTo("A B C E D");
+    assertThat(graph.breadthFirstSearch(Point.B)).isEqualTo("B A D E C");
+    assertThat(graph.breadthFirstSearch(Point.C)).isEqualTo("C A D B E");
+    assertThat(graph.breadthFirstSearch(Point.D)).isEqualTo("D B C E A");
+    assertThat(graph.breadthFirstSearch(Point.E)).isEqualTo("E A B D C");
   }
 
   private void setVertices() {
