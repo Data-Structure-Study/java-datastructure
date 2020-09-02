@@ -57,7 +57,73 @@ public class ListWeightGraph implements WeightedGraph {
 
   @Override
   public void convertToMST() {
+    int vertexCount = this.vertices.length;
+    int edgeCount = this.edgePriorityQueue.size() + 1;
+    List<WeightEdge> edges = new DummyDoublyLinkedList<>();
 
+    // MST가 될 때까지 while문을 반복
+    while (edgeCount != vertexCount) {
+      WeightEdge edge = this.edgePriorityQueue.dequeue();
+      removeEdge(edge.fromVertex, edge.toVertex); // 그래프에서 제거해본다.
+      edgeCount--;
+
+      if (!isConnectedWith(edge.fromVertex, edge.toVertex)) { // 연결되어 있지 않으면 복구
+        recoverEdge(edge);
+        edges.insert(edge);
+        edgeCount++;
+      }
+    }
+
+    // 간선 정보 복원
+    for (int i = 0; i < edges.size(); i++) {
+      this.edgePriorityQueue.enqueue(edges.get(i));
+    }
+  }
+
+  private boolean isConnectedWith(Enum<?> fromVertex, Enum<?> toVertex) {
+    boolean[] visited = new boolean[vertices.length];
+    Stack<Enum<?>> vertexStack = new ListStack<>();
+    vertexStack.push(fromVertex);
+
+    while (!vertexStack.isEmpty()) {
+      Enum<?> visitV = vertexStack.pop();
+      if (visitVertex(visited, visitV)) {
+        if (visitV.equals(toVertex)) {
+          return true;
+        }
+      }
+
+      List<Enum<?>> vertexList = vertices[visitV.ordinal()];
+      for (int i = 0; i < vertexList.size(); i++) {
+        Enum<?> vertex = vertexList.get(i);
+        if (!visited[vertex.ordinal()]) {
+          vertexStack.push(vertex);
+        }
+      }
+    }
+
+    return false;
+  }
+
+  private void recoverEdge(WeightEdge edge) {
+    vertices[edge.fromVertex.ordinal()].insert(edge.toVertex);
+    vertices[edge.toVertex.ordinal()].insert(edge.fromVertex);
+  }
+
+  private void removeEdge(Enum<?> fromVertex, Enum<?> toVertex) {
+    removeVertexFromLink(fromVertex, toVertex);
+    removeVertexFromLink(toVertex, fromVertex);
+  }
+
+  private void removeVertexFromLink(Enum<?> vertexA, Enum<?> vertexB) {
+    List<Enum<?>> vertexLinkInfo = this.vertices[vertexA.ordinal()];
+    for (int i = 0; i < vertexLinkInfo.size(); i++) {
+      if (vertexLinkInfo.get(i).equals(vertexB)) {
+        vertexLinkInfo.remove(i);
+        return;
+      }
+    }
+    throw new IllegalArgumentException("해당 정점들은 연결되어있지 않습니다.");
   }
 
   @Override
@@ -132,7 +198,6 @@ public class ListWeightGraph implements WeightedGraph {
           vertexQueue.enqueue(vertex);
         }
       }
-
     }
 
     return sj.toString();
