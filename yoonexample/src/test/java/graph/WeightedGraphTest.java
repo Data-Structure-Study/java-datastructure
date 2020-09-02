@@ -39,46 +39,46 @@ class WeightedGraphTest {
     graph.addEdge(Point.A, Point.C, 12);
     assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B C\nB: A C\nC: B A\n");
     assertThat(graph.showGraphEdgeWeightInfo())
-        .isEqualTo("(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n");
+        .isEqualTo("(A-C), w: 12\n(A-B), w: 9\n(B-C), w: 2\n");
 
     graph.addEdge(Point.A, Point.D, 8);
     assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B C D\nB: A C\nC: B A\nD: A\n");
     assertThat(graph.showGraphEdgeWeightInfo())
-        .isEqualTo("(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n");
+        .isEqualTo("(A-C), w: 12\n(A-B), w: 9\n(A-D), w: 8\n(B-C), w: 2\n");
 
     graph.addEdge(Point.D, Point.C, 6);
     assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B C D\nB: A C\nC: B A D\nD: A C\n");
     assertThat(graph.showGraphEdgeWeightInfo())
-        .isEqualTo("(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n(D-C), w: 6\n");
+        .isEqualTo("(A-C), w: 12\n(A-B), w: 9\n(A-D), w: 8\n(D-C), w: 6\n(B-C), w: 2\n");
 
     graph.addEdge(Point.A, Point.F, 11);
     assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B C D F\nB: A C\nC: B A D\nD: A C\nF: A\n");
     assertThat(graph.showGraphEdgeWeightInfo()).isEqualTo(
-        "(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n(D-C), w: 6\n(A-F), w: 11\n");
+        "(A-C), w: 12\n(A-F), w: 11\n(A-B), w: 9\n(A-D), w: 8\n(D-C), w: 6\n(B-C), w: 2\n");
 
     graph.addEdge(Point.F, Point.D, 4);
     assertThat(graph.showGraphEdgeInfo())
         .isEqualTo("A: B C D F\nB: A C\nC: B A D\nD: A C F\nF: A D\n");
     assertThat(graph.showGraphEdgeWeightInfo()).isEqualTo(
-        "(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n(D-C), w: 6\n(A-F), w: 11\n(F-D), w: 4\n");
+        "(A-C), w: 12\n(A-F), w: 11\n(A-B), w: 9\n(A-D), w: 8\n(D-C), w: 6\n(F-D), w: 4\n(B-C), w: 2\n");
 
     graph.addEdge(Point.D, Point.E, 3);
     assertThat(graph.showGraphEdgeInfo())
         .isEqualTo("A: B C D F\nB: A C\nC: B A D\nD: A C F E\nE: D\nF: A D\n");
     assertThat(graph.showGraphEdgeWeightInfo()).isEqualTo(
-        "(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n(D-C), w: 6\n(A-F), w: 11\n(F-D), w: 4\n(D-E), w: 3\n");
+        "(A-C), w: 12\n(A-F), w: 11\n(A-B), w: 9\n(A-D), w: 8\n(D-C), w: 6\n(F-D), w: 4\n(D-E), w: 3\n(B-C), w: 2\n");
 
     graph.addEdge(Point.E, Point.C, 7);
     assertThat(graph.showGraphEdgeInfo())
         .isEqualTo("A: B C D F\nB: A C\nC: B A D E\nD: A C F E\nE: D C\nF: A D\n");
     assertThat(graph.showGraphEdgeWeightInfo()).isEqualTo(
-        "(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n(D-C), w: 6\n(A-F), w: 11\n(F-D), w: 4\n(D-E), w: 3\n(E-C), w: 7\n");
+        "(A-C), w: 12\n(A-F), w: 11\n(A-B), w: 9\n(A-D), w: 8\n(E-C), w: 7\n(D-C), w: 6\n(F-D), w: 4\n(D-E), w: 3\n(B-C), w: 2\n");
 
     graph.addEdge(Point.F, Point.E, 13);
     assertThat(graph.showGraphEdgeInfo())
         .isEqualTo("A: B C D F\nB: A C\nC: B A D E\nD: A C F E\nE: D C F\nF: A D E\n");
     assertThat(graph.showGraphEdgeWeightInfo()).isEqualTo(
-        "(A-B), w: 9\n(B-C), w: 2\n(A-C), w: 12\n(A-D), w: 8\n(D-C), w: 6\n(A-F), w: 11\n(F-D), w: 4\n(D-E), w: 3\n(E-C), w: 7\n(F-E), w: 13\n");
+        "(F-E), w: 13\n(A-C), w: 12\n(A-F), w: 11\n(A-B), w: 9\n(A-D), w: 8\n(E-C), w: 7\n(D-C), w: 6\n(F-D), w: 4\n(D-E), w: 3\n(B-C), w: 2\n");
   }
 
   @Test

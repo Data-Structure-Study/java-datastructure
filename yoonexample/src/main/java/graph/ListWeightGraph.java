@@ -39,7 +39,20 @@ public class ListWeightGraph implements WeightedGraph {
 
   @Override
   public String showGraphEdgeWeightInfo() {
-    return null;
+    List<WeightEdge> weightEdgeList = new DummyDoublyLinkedList<>();
+    StringBuilder sb = new StringBuilder();
+
+    while (!this.edgePriorityQueue.isEmpty()) {
+      WeightEdge edge = this.edgePriorityQueue.dequeue();
+      weightEdgeList.insert(edge);
+      sb.append(edge.showEdgeInfo()).append("\n");
+    }
+
+    for (int i = 0; i < weightEdgeList.size(); i++) {
+      this.edgePriorityQueue.enqueue(weightEdgeList.get(i));
+    }
+
+    return sb.toString();
   }
 
   @Override
@@ -143,6 +156,10 @@ public class ListWeightGraph implements WeightedGraph {
       this.weight = weight;
       this.fromVertex = fromVertex;
       this.toVertex = toVertex;
+    }
+
+    private String showEdgeInfo() {
+      return "(" + fromVertex.toString() + "-" + toVertex.toString() + "), " + "w: " + weight;
     }
   }
 }
