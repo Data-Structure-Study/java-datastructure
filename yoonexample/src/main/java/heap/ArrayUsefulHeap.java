@@ -64,6 +64,11 @@ public class ArrayUsefulHeap<E> implements UsefulHeap<E> {
     return retData;
   }
 
+  @Override
+  public int size() {
+    return this.numOfData;
+  }
+
   /**
    * 부모 노드의 인덱스 반환 요청
    *

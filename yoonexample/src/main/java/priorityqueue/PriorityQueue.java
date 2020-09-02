@@ -27,4 +27,11 @@ public interface PriorityQueue<E> {
    * @return 우선순위가 가장 높은 데이터
    */
   E dequeue();
+
+  /**
+   * 우선순위 큐에 저장되어 있는 데이터의 수를 반환합니다.
+   *
+   * @return 우선순위 큐에 저장되어 있는 데이터의 수
+   */
+  int size();
 }
