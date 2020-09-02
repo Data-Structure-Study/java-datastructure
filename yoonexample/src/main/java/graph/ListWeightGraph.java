@@ -25,7 +25,11 @@ public class ListWeightGraph implements WeightedGraph {
 
   @Override
   public void addEdge(Enum<?> fromV, Enum<?> toV, int weight) {
+    WeightEdge edge = new WeightEdge(weight, fromV, toV);
+    vertices[fromV.ordinal()].insert(toV);
+    vertices[toV.ordinal()].insert(fromV);
 
+    edgePriorityQueue.enqueue(edge);
   }
 
   @Override
@@ -60,8 +64,14 @@ public class ListWeightGraph implements WeightedGraph {
 
   private static class WeightEdge {
 
-    private int weight;
-    private Enum<?> fromVertex;
-    private Enum<?> toVertex;
+    private final int weight;
+    private final Enum<?> fromVertex;
+    private final Enum<?> toVertex;
+
+    public WeightEdge(int weight, Enum<?> fromVertex, Enum<?> toVertex) {
+      this.weight = weight;
+      this.fromVertex = fromVertex;
+      this.toVertex = toVertex;
+    }
   }
 }
