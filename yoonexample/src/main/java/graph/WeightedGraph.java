@@ -24,9 +24,7 @@ public interface WeightedGraph extends Graph {
   String showGraphEdgeWeightInfo();
 
   /**
-   * 알고리즘을 선택해서 최소신장 트리로 변환합니다. (전략 패턴)
-   *
-   * @param algorithm 사용할 알고리즘
+   * 크루스칼 알고리즘을 이용해 최소신장 트리로 변환합니다.
    */
-  void convertToMST(MSTConversionAlgorithm algorithm);
+  void convertToMST();
 }

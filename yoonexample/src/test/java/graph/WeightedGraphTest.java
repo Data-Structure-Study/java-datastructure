@@ -94,7 +94,7 @@ class WeightedGraphTest {
     graph.addEdge(Point.E, Point.C, 7);
     graph.addEdge(Point.F, Point.E, 13);
 
-    graph.convertToMST(new KruskalAlgorithm());
+    graph.convertToMST();
     assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: D\nB: C\nC: B D\nD: A C E F\nE: D\nF: D\n");
     assertThat(graph.showGraphEdgeWeightInfo())
         .isEqualTo("(A-D), w: 8\n(D-C), w: 6\n(F-D), w:4\n(D-E), w:3\n(B-C), w:2\n");

@@ -56,7 +56,7 @@ public class ListWeightGraph implements WeightedGraph {
   }
 
   @Override
-  public void convertToMST(MSTConversionAlgorithm algorithm) {
+  public void convertToMST() {
 
   }
 
