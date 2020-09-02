@@ -30,4 +30,9 @@ public class HeapPriorityQueue<E> implements PriorityQueue<E> {
     }
     return this.heap.delete();
   }
+
+  @Override
+  public int size() {
+    return this.heap.size();
+  }
 }

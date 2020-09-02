@@ -20,7 +20,7 @@ class GraphTest {
   }
 
   @Test
-  void 방향_그래프_정점_연결_테스트() {
+  void 무방향_그래프_정점_연결_테스트() {
     graph.addEdge(Point.A, Point.B);
     assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: B\nB: A\n");
 

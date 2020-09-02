@@ -27,4 +27,11 @@ public interface UsefulHeap<E> {
    * @return 힙에 저장되어 있던 최우선순위 데이터
    */
   E delete();
+
+  /**
+   * 힙에 저장되어 있는 데이터의 수를 반환합니다.
+   *
+   * @return 힙에 저장되어 있는 데이터의 수
+   */
+  int size();
 }
