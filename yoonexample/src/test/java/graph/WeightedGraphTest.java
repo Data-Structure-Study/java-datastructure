@@ -12,7 +12,7 @@ class WeightedGraphTest {
 
   @BeforeEach
   void setUp() {
-    this.graph = new ListWeightGraph(7, Point.class);
+    this.graph = new ListWeightGraph(6, Point.class);
   }
 
   @Test
@@ -95,9 +95,9 @@ class WeightedGraphTest {
     graph.addEdge(Point.F, Point.E, 13);
 
     graph.convertToMST();
-    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: D\nB: C\nC: B D\nD: A C E F\nE: D\nF: D\n");
+    assertThat(graph.showGraphEdgeInfo()).isEqualTo("A: D\nB: C\nC: B D\nD: C F E A\nE: D\nF: D\n");
     assertThat(graph.showGraphEdgeWeightInfo())
-        .isEqualTo("(A-D), w: 8\n(D-C), w: 6\n(F-D), w:4\n(D-E), w:3\n(B-C), w:2\n");
+        .isEqualTo("(A-D), w: 8\n(D-C), w: 6\n(F-D), w: 4\n(D-E), w: 3\n(B-C), w: 2\n");
   }
 
   private enum Point {
