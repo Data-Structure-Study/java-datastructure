@@ -1,4 +1,4 @@
-package com.codesquad.datastructurestudy.linkedlist;
+package com.codesquad.datastructurestudy.list.linkedlist;
 
 public class Link {
     /**

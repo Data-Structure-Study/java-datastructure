@@ -1,4 +1,4 @@
-package com.codesquad.datastructurestudy.linkedlist;
+package com.codesquad.datastructurestudy.list.linkedlist;
 
 public class LinkedList {
     // 첫 번째 노드를 가리키는 필드

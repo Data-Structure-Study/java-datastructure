@@ -1,4 +1,4 @@
-package com.codesquad.datastructurestudy.linkedlist;
+package com.codesquad.datastructurestudy.list.linkedlist;
 
 /**
  * This class implements a DoublyLinkedList. This is done using the classes
