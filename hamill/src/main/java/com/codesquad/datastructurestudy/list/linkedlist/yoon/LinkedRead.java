@@ -8,6 +8,8 @@ public class LinkedRead {
   private static Node tail;
 
   public static void main(String[] args) {
+
+
     Node newNode = new Node();
     Scanner scanner = new Scanner(System.in);
 //    int readData = 0;
