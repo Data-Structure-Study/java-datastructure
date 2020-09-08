@@ -1,6 +1,8 @@
 package com.codesquad.datastructurestudy.stack.yoon;
 
-public class StackLinkedListImpl implements Stack{
+import com.codesquad.datastructurestudy.tree.yoon.BinaryTreeNode;
+
+public class StackLinkedListImpl {
 
   private Node head;
 
@@ -15,19 +17,19 @@ public class StackLinkedListImpl implements Stack{
     return false;
   }
 
-  public void push(int data) {
+  public void push(BinaryTreeNode data) {
     Node newNode = new Node(data);
     newNode.next = head;
     head = newNode;
   }
 
-  public int pop() {
-    int delData;
+  public BinaryTreeNode pop() {
+    BinaryTreeNode delData;
     Node delNode;
 
     if (isEmpty()) {
       System.out.println("Stack Memory Error!");
-      return -1;
+      return null;
     }
 
     delData = head.data;
@@ -38,26 +40,26 @@ public class StackLinkedListImpl implements Stack{
     return delData;
   }
 
-  public int peek() {
+  public BinaryTreeNode peek() {
     if (isEmpty()) {
       System.out.println("Stack Memory Error!");
-      return -1;
+      return null;
     }
 
     return head.data;
   }
 
   private class Node {
-    private int data;
+    private BinaryTreeNode data;
     private Node next;
 
-    public Node(int data) {
+    public Node(BinaryTreeNode data) {
       this.data = data;
       this.next = null;
     }
 
     public Node() {
-      this.data = -1;
+      this.data = null;
       this.next = null;
     }
   }
